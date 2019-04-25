@@ -70,14 +70,12 @@ var SwaggerUnicast = require('swagger_unicast');
 
 
 var api = new SwaggerUnicast.UserApi()
-var opts = {
-  'username': "username_example", // {String} Nombre del nuevo usuario
-  'password': "password_example", // {String} Contraseña del nuevo usuario
-  'email': null, // {String} Email del nuevo usuario
-  'description': "description_example", // {String} Descripción para el nuevo usuario
-  'universityId': new SwaggerUnicast.ModelNull(), // {ModelNull} Universidad del usuario
-  'photo': "/path/to/file" // {File} Foto del usuario
-};
+var username = "username_example"; // {String} Nombre del nuevo usuario
+var password = "password_example"; // {String} Contraseña del nuevo usuario
+var email = null; // {String} Email del nuevo usuario
+var description = "description_example"; // {String} Descripción para el nuevo usuario
+var universityId = 56; // {Number} Universidad del usuario
+var photo = "/path/to/file"; // {File} Foto del usuario
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -85,7 +83,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addUser(opts, callback);
+api.addUser(username, password, email, description, universityId, photo, callback);
 
 ```
 

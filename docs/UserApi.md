@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> addUser(opts)
+> addUser(username, password, email, description, universityId, photo)
 
 Registro de un nuevo usuario en el sistema
 
@@ -23,15 +23,13 @@ Adicion de nuevos usuarios
 import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.UserApi();
-let opts = {
-  'username': "username_example", // String | Nombre del nuevo usuario
-  'password': "password_example", // String | Contraseña del nuevo usuario
-  'email': null, // String | Email del nuevo usuario
-  'description': "description_example", // String | Descripción para el nuevo usuario
-  'universityId': new SwaggerUnicast.ModelNull(), // ModelNull | Universidad del usuario
-  'photo': "/path/to/file" // File | Foto del usuario
-};
-apiInstance.addUser(opts, (error, data, response) => {
+let username = "username_example"; // String | Nombre del nuevo usuario
+let password = "password_example"; // String | Contraseña del nuevo usuario
+let email = null; // String | Email del nuevo usuario
+let description = "description_example"; // String | Descripción para el nuevo usuario
+let universityId = 56; // Number | Universidad del usuario
+let photo = "/path/to/file"; // File | Foto del usuario
+apiInstance.addUser(username, password, email, description, universityId, photo, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -45,12 +43,12 @@ apiInstance.addUser(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| Nombre del nuevo usuario | [optional] 
- **password** | **String**| Contraseña del nuevo usuario | [optional] 
- **email** | [**String**](String.md)| Email del nuevo usuario | [optional] 
- **description** | **String**| Descripción para el nuevo usuario | [optional] 
- **universityId** | [**ModelNull**](ModelNull.md)| Universidad del usuario | [optional] 
- **photo** | **File**| Foto del usuario | [optional] 
+ **username** | **String**| Nombre del nuevo usuario | 
+ **password** | **String**| Contraseña del nuevo usuario | 
+ **email** | [**String**](String.md)| Email del nuevo usuario | 
+ **description** | **String**| Descripción para el nuevo usuario | 
+ **universityId** | **Number**| Universidad del usuario | 
+ **photo** | **File**| Foto del usuario | 
 
 ### Return type
 

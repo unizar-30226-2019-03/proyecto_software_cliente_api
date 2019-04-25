@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ModelNull from './ModelNull';
 
 /**
  * The InlineObject model module.
@@ -23,10 +22,16 @@ class InlineObject {
     /**
      * Constructs a new <code>InlineObject</code>.
      * @alias module:model/InlineObject
+     * @param username {String} Nombre del nuevo usuario
+     * @param password {String} Contraseña del nuevo usuario
+     * @param email {String} Email del nuevo usuario
+     * @param description {String} Descripción para el nuevo usuario
+     * @param universityId {Number} Universidad del usuario
+     * @param photo {File} Foto del usuario
      */
-    constructor() { 
+    constructor(username, password, email, description, universityId, photo) { 
         
-        InlineObject.initialize(this);
+        InlineObject.initialize(this, username, password, email, description, universityId, photo);
     }
 
     /**
@@ -34,7 +39,13 @@ class InlineObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, username, password, email, description, universityId, photo) { 
+        obj['username'] = username;
+        obj['password'] = password;
+        obj['email'] = email;
+        obj['description'] = description;
+        obj['university_id'] = universityId;
+        obj['photo'] = photo;
     }
 
     /**
@@ -61,7 +72,7 @@ class InlineObject {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('university_id')) {
-                obj['university_id'] = ApiClient.convertToType(data['university_id'], ModelNull);
+                obj['university_id'] = ApiClient.convertToType(data['university_id'], 'Number');
             }
             if (data.hasOwnProperty('photo')) {
                 obj['photo'] = ApiClient.convertToType(data['photo'], File);
@@ -99,7 +110,7 @@ InlineObject.prototype['description'] = undefined;
 
 /**
  * Universidad del usuario
- * @member {module:model/ModelNull} university_id
+ * @member {Number} university_id
  */
 InlineObject.prototype['university_id'] = undefined;
 

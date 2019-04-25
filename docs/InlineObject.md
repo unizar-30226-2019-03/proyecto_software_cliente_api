@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** | Nombre del nuevo usuario | [optional] 
-**password** | **String** | Contraseña del nuevo usuario | [optional] 
-**email** | **String** | Email del nuevo usuario | [optional] 
-**description** | **String** | Descripción para el nuevo usuario | [optional] 
-**universityId** | [**ModelNull**](ModelNull.md) | Universidad del usuario | [optional] 
-**photo** | **File** | Foto del usuario | [optional] 
+**username** | **String** | Nombre del nuevo usuario | 
+**password** | **String** | Contraseña del nuevo usuario | 
+**email** | **String** | Email del nuevo usuario | 
+**description** | **String** | Descripción para el nuevo usuario | 
+**universityId** | **Number** | Universidad del usuario | 
+**photo** | **File** | Foto del usuario | 
 
 

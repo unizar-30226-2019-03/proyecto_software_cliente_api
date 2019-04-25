@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import ModelNull from '../model/ModelNull';
 
 /**
 * User service.
@@ -45,18 +44,40 @@ export default class UserApi {
     /**
      * Registro de un nuevo usuario en el sistema
      * Adicion de nuevos usuarios
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.username Nombre del nuevo usuario
-     * @param {String} opts.password Contraseña del nuevo usuario
-     * @param {String} opts.email Email del nuevo usuario
-     * @param {String} opts.description Descripción para el nuevo usuario
-     * @param {module:model/ModelNull} opts.universityId Universidad del usuario
-     * @param {File} opts.photo Foto del usuario
+     * @param {String} username Nombre del nuevo usuario
+     * @param {String} password Contraseña del nuevo usuario
+     * @param {String} email Email del nuevo usuario
+     * @param {String} description Descripción para el nuevo usuario
+     * @param {Number} universityId Universidad del usuario
+     * @param {File} photo Foto del usuario
      * @param {module:api/UserApi~addUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    addUser(opts, callback) {
-      opts = opts || {};
+    addUser(username, password, email, description, universityId, photo, callback) {
       let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling addUser");
+      }
+      // verify the required parameter 'password' is set
+      if (password === undefined || password === null) {
+        throw new Error("Missing the required parameter 'password' when calling addUser");
+      }
+      // verify the required parameter 'email' is set
+      if (email === undefined || email === null) {
+        throw new Error("Missing the required parameter 'email' when calling addUser");
+      }
+      // verify the required parameter 'description' is set
+      if (description === undefined || description === null) {
+        throw new Error("Missing the required parameter 'description' when calling addUser");
+      }
+      // verify the required parameter 'universityId' is set
+      if (universityId === undefined || universityId === null) {
+        throw new Error("Missing the required parameter 'universityId' when calling addUser");
+      }
+      // verify the required parameter 'photo' is set
+      if (photo === undefined || photo === null) {
+        throw new Error("Missing the required parameter 'photo' when calling addUser");
+      }
 
       let pathParams = {
       };
@@ -65,12 +86,12 @@ export default class UserApi {
       let headerParams = {
       };
       let formParams = {
-        'username': opts['username'],
-        'password': opts['password'],
-        'email': opts['email'],
-        'description': opts['description'],
-        'university_id': opts['universityId'],
-        'photo': opts['photo']
+        'username': username,
+        'password': password,
+        'email': email,
+        'description': description,
+        'university_id': universityId,
+        'photo': photo
       };
 
       let authNames = [];

@@ -24,11 +24,11 @@ npm install swagger_unicast --save
 
 #### git
 
-If the library is hosted at a git repository, e.g.https://github.com/GIT_USER_ID/GIT_REPO_ID
+If the library is hosted at a git repository, e.g.https://github.com/unizar-30226-2019-03/proyecto_software_cliente_api
 then install it via:
 
 ```shell
-    npm install GIT_USER_ID/GIT_REPO_ID --save
+    npm install unizar-30226-2019-03/proyecto_software_cliente_api --save
 ```
 
 ### For browser

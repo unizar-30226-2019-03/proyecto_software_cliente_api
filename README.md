@@ -68,22 +68,20 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var SwaggerUnicast = require('swagger_unicast');
 
+var defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+var bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
-var api = new SwaggerUnicast.UserApi()
-var username = "username_example"; // {String} Nombre del nuevo usuario
-var password = "password_example"; // {String} Contraseña del nuevo usuario
-var email = null; // {String} Email del nuevo usuario
-var description = "description_example"; // {String} Descripción para el nuevo usuario
-var universityId = 56; // {Number} Universidad del usuario
-var photo = "/path/to/file"; // {File} Foto del usuario
+var api = new SwaggerUnicast.UniversityApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.addUser(username, password, email, description, universityId, photo, callback);
+api.getUniversities(callback);
 
 ```
 
@@ -93,14 +91,25 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*SwaggerUnicast.UniversityApi* | [**getUniversities**](docs/UniversityApi.md#getUniversities) | **GET** /universities | Lista de universidades
 *SwaggerUnicast.UserApi* | [**addUser**](docs/UserApi.md#addUser) | **POST** /public/register | Registro de un nuevo usuario en el sistema
 *SwaggerUnicast.UserApi* | [**authUser**](docs/UserApi.md#authUser) | **POST** /public/authenticate | Autentificacion de usuarios
+*SwaggerUnicast.UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **POST** /user/update | Actualizacion de un usuario en el sistema
 
 
 ## Documentation for Models
 
+ - [SwaggerUnicast.GetResponse](docs/GetResponse.md)
+ - [SwaggerUnicast.GetResponseLinks](docs/GetResponseLinks.md)
+ - [SwaggerUnicast.HalLink](docs/HalLink.md)
  - [SwaggerUnicast.InlineObject](docs/InlineObject.md)
  - [SwaggerUnicast.InlineObject1](docs/InlineObject1.md)
+ - [SwaggerUnicast.InlineObject2](docs/InlineObject2.md)
+ - [SwaggerUnicast.PaginationPage](docs/PaginationPage.md)
+ - [SwaggerUnicast.University](docs/University.md)
+ - [SwaggerUnicast.UniversityGetEmbedded](docs/UniversityGetEmbedded.md)
+ - [SwaggerUnicast.UniversityGetResponse](docs/UniversityGetResponse.md)
+ - [SwaggerUnicast.UniversityLinks](docs/UniversityLinks.md)
 
 
 ## Documentation for Authorization

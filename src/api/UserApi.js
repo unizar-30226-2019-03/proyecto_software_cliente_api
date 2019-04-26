@@ -109,7 +109,7 @@ export default class UserApi {
      * Callback function to receive the result of the authUser operation.
      * @callback module:api/UserApi~authUserCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {Blob} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -119,6 +119,7 @@ export default class UserApi {
      * @param {String} username Nombre del usuario a comprobar
      * @param {String} password Contraseña del nuevo usuario
      * @param {module:api/UserApi~authUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Blob}
      */
     authUser(username, password, callback) {
       let postBody = null;
@@ -144,10 +145,66 @@ export default class UserApi {
 
       let authNames = [];
       let contentTypes = ['application/x-www-form-urlencoded'];
+      let accepts = ['text/plain'];
+      let returnType = 'Blob';
+      return this.apiClient.callApi(
+        '/public/authenticate', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateUser operation.
+     * @callback module:api/UserApi~updateUserCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Actualizacion de un usuario en el sistema
+     * Actualizacion de usuarios
+     * @param {Number} userId Id del usuario
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.username Nombre del usuario a actualizar
+     * @param {String} opts.password Contraseña del usuario a actualizar
+     * @param {String} opts.email Email del usuario a actualizar
+     * @param {String} opts.description Descripción para el usuario a actualizar
+     * @param {Number} opts.universityId Universidad del usuario a actualizar
+     * @param {File} opts.photo Foto del usuario a actualizar
+     * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    updateUser(userId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling updateUser");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'user_id': userId,
+        'username': opts['username'],
+        'password': opts['password'],
+        'email': opts['email'],
+        'description': opts['description'],
+        'university_id': opts['universityId'],
+        'photo': opts['photo']
+      };
+
+      let authNames = ['bearerAuth'];
+      let contentTypes = ['multipart/form-data'];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/public/authenticate', 'POST',
+        '/user/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

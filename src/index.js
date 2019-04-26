@@ -13,8 +13,18 @@
 
 
 import ApiClient from './ApiClient';
+import GetResponse from './model/GetResponse';
+import GetResponseLinks from './model/GetResponseLinks';
+import HalLink from './model/HalLink';
 import InlineObject from './model/InlineObject';
 import InlineObject1 from './model/InlineObject1';
+import InlineObject2 from './model/InlineObject2';
+import PaginationPage from './model/PaginationPage';
+import University from './model/University';
+import UniversityGetEmbedded from './model/UniversityGetEmbedded';
+import UniversityGetResponse from './model/UniversityGetResponse';
+import UniversityLinks from './model/UniversityLinks';
+import UniversityApi from './api/UniversityApi';
 import UserApi from './api/UserApi';
 
 
@@ -57,6 +67,24 @@ export {
     ApiClient,
 
     /**
+     * The GetResponse model constructor.
+     * @property {module:model/GetResponse}
+     */
+    GetResponse,
+
+    /**
+     * The GetResponseLinks model constructor.
+     * @property {module:model/GetResponseLinks}
+     */
+    GetResponseLinks,
+
+    /**
+     * The HalLink model constructor.
+     * @property {module:model/HalLink}
+     */
+    HalLink,
+
+    /**
      * The InlineObject model constructor.
      * @property {module:model/InlineObject}
      */
@@ -67,6 +95,48 @@ export {
      * @property {module:model/InlineObject1}
      */
     InlineObject1,
+
+    /**
+     * The InlineObject2 model constructor.
+     * @property {module:model/InlineObject2}
+     */
+    InlineObject2,
+
+    /**
+     * The PaginationPage model constructor.
+     * @property {module:model/PaginationPage}
+     */
+    PaginationPage,
+
+    /**
+     * The University model constructor.
+     * @property {module:model/University}
+     */
+    University,
+
+    /**
+     * The UniversityGetEmbedded model constructor.
+     * @property {module:model/UniversityGetEmbedded}
+     */
+    UniversityGetEmbedded,
+
+    /**
+     * The UniversityGetResponse model constructor.
+     * @property {module:model/UniversityGetResponse}
+     */
+    UniversityGetResponse,
+
+    /**
+     * The UniversityLinks model constructor.
+     * @property {module:model/UniversityLinks}
+     */
+    UniversityLinks,
+
+    /**
+    * The UniversityApi service constructor.
+    * @property {module:api/UniversityApi}
+    */
+    UniversityApi,
 
     /**
     * The UserApi service constructor.

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUser**](UserApi.md#addUser) | **POST** /public/register | Registro de un nuevo usuario en el sistema
 [**authUser**](UserApi.md#authUser) | **POST** /public/authenticate | Autentificacion de usuarios
+[**updateUser**](UserApi.md#updateUser) | **POST** /user/update | Actualizacion de un usuario en el sistema
 
 
 
@@ -66,7 +67,7 @@ No authorization required
 
 ## authUser
 
-> authUser(username, password)
+> Blob authUser(username, password)
 
 Autentificacion de usuarios
 
@@ -84,7 +85,7 @@ apiInstance.authUser(username, password, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -99,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Blob**
 
 ### Authorization
 
@@ -108,5 +109,68 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: text/plain
+
+
+## updateUser
+
+> updateUser(userId, opts)
+
+Actualizacion de un usuario en el sistema
+
+Actualizacion de usuarios
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let userId = 56; // Number | Id del usuario
+let opts = {
+  'username': "username_example", // String | Nombre del usuario a actualizar
+  'password': "password_example", // String | Contraseña del usuario a actualizar
+  'email': null, // String | Email del usuario a actualizar
+  'description': "description_example", // String | Descripción para el usuario a actualizar
+  'universityId': 56, // Number | Universidad del usuario a actualizar
+  'photo': "/path/to/file" // File | Foto del usuario a actualizar
+};
+apiInstance.updateUser(userId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id del usuario | 
+ **username** | **String**| Nombre del usuario a actualizar | [optional] 
+ **password** | **String**| Contraseña del usuario a actualizar | [optional] 
+ **email** | [**String**](String.md)| Email del usuario a actualizar | [optional] 
+ **description** | **String**| Descripción para el usuario a actualizar | [optional] 
+ **universityId** | **Number**| Universidad del usuario a actualizar | [optional] 
+ **photo** | **File**| Foto del usuario a actualizar | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: Not defined
 

@@ -67,7 +67,7 @@ No authorization required
 
 ## authUser
 
-> Blob authUser(username, password)
+> Token authUser(username, password)
 
 Autentificacion de usuarios
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Blob**
+[**Token**](Token.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/x-www-form-urlencoded
-- **Accept**: text/plain
+- **Accept**: application/json
 
 
 ## updateUser

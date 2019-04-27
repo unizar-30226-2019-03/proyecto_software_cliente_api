@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import SubjectWithLinks from './SubjectWithLinks';
 
 /**
- * The SubjectGetEmbedded model module.
- * @module model/SubjectGetEmbedded
+ * The Token model module.
+ * @module model/Token
  * @version 1.0.3
  */
-class SubjectGetEmbedded {
+class Token {
     /**
-     * Constructs a new <code>SubjectGetEmbedded</code>.
-     * @alias module:model/SubjectGetEmbedded
+     * Constructs a new <code>Token</code>.
+     * @alias module:model/Token
      */
     constructor() { 
         
-        SubjectGetEmbedded.initialize(this);
+        Token.initialize(this);
     }
 
     /**
@@ -38,18 +37,18 @@ class SubjectGetEmbedded {
     }
 
     /**
-     * Constructs a <code>SubjectGetEmbedded</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Token</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SubjectGetEmbedded} obj Optional instance to populate.
-     * @return {module:model/SubjectGetEmbedded} The populated <code>SubjectGetEmbedded</code> instance.
+     * @param {module:model/Token} obj Optional instance to populate.
+     * @return {module:model/Token} The populated <code>Token</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SubjectGetEmbedded();
+            obj = obj || new Token();
 
-            if (data.hasOwnProperty('subjects')) {
-                obj['subjects'] = ApiClient.convertToType(data['subjects'], [SubjectWithLinks]);
+            if (data.hasOwnProperty('token')) {
+                obj['token'] = ApiClient.convertToType(data['token'], 'String');
             }
         }
         return obj;
@@ -59,14 +58,14 @@ class SubjectGetEmbedded {
 }
 
 /**
- * @member {Array.<module:model/SubjectWithLinks>} subjects
+ * @member {String} token
  */
-SubjectGetEmbedded.prototype['subjects'] = undefined;
+Token.prototype['token'] = undefined;
 
 
 
 
 
 
-export default SubjectGetEmbedded;
+export default Token;
 

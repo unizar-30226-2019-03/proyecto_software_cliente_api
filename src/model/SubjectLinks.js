@@ -15,18 +15,18 @@ import ApiClient from '../ApiClient';
 import HalLink from './HalLink';
 
 /**
- * The UniversityLinks model module.
- * @module model/UniversityLinks
+ * The SubjectLinks model module.
+ * @module model/SubjectLinks
  * @version 1.0.2
  */
-class UniversityLinks {
+class SubjectLinks {
     /**
-     * Constructs a new <code>UniversityLinks</code>.
-     * @alias module:model/UniversityLinks
+     * Constructs a new <code>SubjectLinks</code>.
+     * @alias module:model/SubjectLinks
      */
     constructor() { 
         
-        UniversityLinks.initialize(this);
+        SubjectLinks.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class UniversityLinks {
     }
 
     /**
-     * Constructs a <code>UniversityLinks</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>SubjectLinks</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/UniversityLinks} obj Optional instance to populate.
-     * @return {module:model/UniversityLinks} The populated <code>UniversityLinks</code> instance.
+     * @param {module:model/SubjectLinks} obj Optional instance to populate.
+     * @return {module:model/SubjectLinks} The populated <code>SubjectLinks</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new UniversityLinks();
+            obj = obj || new SubjectLinks();
 
             if (data.hasOwnProperty('self')) {
                 obj['self'] = HalLink.constructFromObject(data['self']);
@@ -57,8 +57,11 @@ class UniversityLinks {
             if (data.hasOwnProperty('users')) {
                 obj['users'] = HalLink.constructFromObject(data['users']);
             }
-            if (data.hasOwnProperty('subjects')) {
-                obj['subjects'] = HalLink.constructFromObject(data['subjects']);
+            if (data.hasOwnProperty('subject')) {
+                obj['subject'] = HalLink.constructFromObject(data['subject']);
+            }
+            if (data.hasOwnProperty('videos')) {
+                obj['videos'] = HalLink.constructFromObject(data['videos']);
             }
         }
         return obj;
@@ -70,27 +73,32 @@ class UniversityLinks {
 /**
  * @member {module:model/HalLink} self
  */
-UniversityLinks.prototype['self'] = undefined;
+SubjectLinks.prototype['self'] = undefined;
 
 /**
  * @member {module:model/HalLink} university
  */
-UniversityLinks.prototype['university'] = undefined;
+SubjectLinks.prototype['university'] = undefined;
 
 /**
  * @member {module:model/HalLink} users
  */
-UniversityLinks.prototype['users'] = undefined;
+SubjectLinks.prototype['users'] = undefined;
 
 /**
- * @member {module:model/HalLink} subjects
+ * @member {module:model/HalLink} subject
  */
-UniversityLinks.prototype['subjects'] = undefined;
+SubjectLinks.prototype['subject'] = undefined;
+
+/**
+ * @member {module:model/HalLink} videos
+ */
+SubjectLinks.prototype['videos'] = undefined;
 
 
 
 
 
 
-export default UniversityLinks;
+export default SubjectLinks;
 

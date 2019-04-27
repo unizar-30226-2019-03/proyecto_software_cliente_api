@@ -1,6 +1,6 @@
 {
   "name": "swagger_unicast",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Documento_de_la_API_de_Unicast",
   "license": "Unlicense",
   "main": "dist/index.js",

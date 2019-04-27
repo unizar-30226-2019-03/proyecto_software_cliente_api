@@ -1,20 +1,20 @@
-# SwaggerUnicast.UniversityApi
+# SwaggerUnicast.SubjectApi
 
 All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com:8080/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addUniversity**](UniversityApi.md#addUniversity) | **POST** /universities | Crear nueva universidad
-[**getUniversities**](UniversityApi.md#getUniversities) | **GET** /universities | Lista de universidades
-[**updateUniversity**](UniversityApi.md#updateUniversity) | **PATCH** /universities/{id} | Actualizar una universidad
+[**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
+[**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
+[**updateSubject**](SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 
 
 
-## addUniversity
+## addSubject
 
-> UniversityWithLinks addUniversity(university)
+> SubjectWithLinks addSubject(subject)
 
-Crear nueva universidad
+Crear nueva asignatura
 
 ### Example
 
@@ -25,9 +25,9 @@ let defaultClient = SwaggerUnicast.ApiClient.instance;
 let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new SwaggerUnicast.UniversityApi();
-let university = new SwaggerUnicast.University(); // University | Universidad a añadir
-apiInstance.addUniversity(university, (error, data, response) => {
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let subject = new SwaggerUnicast.Subject(); // Subject | Asignatura a añadir
+apiInstance.addSubject(subject, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -41,11 +41,11 @@ apiInstance.addUniversity(university, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **university** | [**University**](University.md)| Universidad a añadir | 
+ **subject** | [**Subject**](Subject.md)| Asignatura a añadir | 
 
 ### Return type
 
-[**UniversityWithLinks**](UniversityWithLinks.md)
+[**SubjectWithLinks**](SubjectWithLinks.md)
 
 ### Authorization
 
@@ -57,11 +57,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/hal+json
 
 
-## getUniversities
+## getSubjects
 
-> UniversityGetResponse getUniversities()
+> SubjectGetResponse getSubjects()
 
-Lista de universidades
+Lista de asignaturas
 
 ### Example
 
@@ -72,8 +72,8 @@ let defaultClient = SwaggerUnicast.ApiClient.instance;
 let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new SwaggerUnicast.UniversityApi();
-apiInstance.getUniversities((error, data, response) => {
+let apiInstance = new SwaggerUnicast.SubjectApi();
+apiInstance.getSubjects((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UniversityGetResponse**](UniversityGetResponse.md)
+[**SubjectGetResponse**](SubjectGetResponse.md)
 
 ### Authorization
 
@@ -100,11 +100,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/hal+json
 
 
-## updateUniversity
+## updateSubject
 
-> UniversityWithLinks updateUniversity(id, university)
+> SubjectWithLinks updateSubject(id, subject)
 
-Actualizar una universidad
+Actualizar una asignatura
 
 ### Example
 
@@ -115,10 +115,10 @@ let defaultClient = SwaggerUnicast.ApiClient.instance;
 let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new SwaggerUnicast.UniversityApi();
-let id = 789; // Number | Id de la universidad
-let university = new SwaggerUnicast.University(); // University | Contenido a editar
-apiInstance.updateUniversity(id, university, (error, data, response) => {
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+let subject = new SwaggerUnicast.Subject(); // Subject | Contenido a editar
+apiInstance.updateSubject(id, subject, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -132,12 +132,12 @@ apiInstance.updateUniversity(id, university, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Id de la universidad | 
- **university** | [**University**](University.md)| Contenido a editar | 
+ **id** | **Number**| Id de la asignatura | 
+ **subject** | [**Subject**](Subject.md)| Contenido a editar | 
 
 ### Return type
 
-[**UniversityWithLinks**](UniversityWithLinks.md)
+[**SubjectWithLinks**](SubjectWithLinks.md)
 
 ### Authorization
 

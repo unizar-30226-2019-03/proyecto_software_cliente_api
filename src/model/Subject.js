@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The University model module.
- * @module model/University
+ * The Subject model module.
+ * @module model/Subject
  * @version 1.0.2
  */
-class University {
+class Subject {
     /**
-     * Constructs a new <code>University</code>.
-     * @alias module:model/University
+     * Constructs a new <code>Subject</code>.
+     * @alias module:model/Subject
      * @param name {String} 
      */
     constructor(name) { 
         
-        University.initialize(this, name);
+        Subject.initialize(this, name);
     }
 
     /**
@@ -39,15 +39,15 @@ class University {
     }
 
     /**
-     * Constructs a <code>University</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Subject</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/University} obj Optional instance to populate.
-     * @return {module:model/University} The populated <code>University</code> instance.
+     * @param {module:model/Subject} obj Optional instance to populate.
+     * @return {module:model/Subject} The populated <code>Subject</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new University();
+            obj = obj || new Subject();
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -62,12 +62,12 @@ class University {
 /**
  * @member {String} name
  */
-University.prototype['name'] = undefined;
+Subject.prototype['name'] = undefined;
 
 
 
 
 
 
-export default University;
+export default Subject;
 

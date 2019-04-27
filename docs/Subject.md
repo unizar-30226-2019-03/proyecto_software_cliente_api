@@ -1,4 +1,4 @@
-# SwaggerUnicast.University
+# SwaggerUnicast.Subject
 
 ## Properties
 

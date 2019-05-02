@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> addUser(username, password, email, description, universityId, photo)
+> addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
 
 Registro de un nuevo usuario en el sistema
 
@@ -25,13 +25,16 @@ Adicion de nuevos usuarios
 import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.UserApi();
-let username = "username_example"; // String | Nombre del nuevo usuario
+let username = "username_example"; // String | Nombre de usuario del nuevo usuario
 let password = "password_example"; // String | Contraseña del nuevo usuario
+let name = "name_example"; // String | Nombre del nuevo usuario
+let surnames = "surnames_example"; // String | Apellidos del nuevo usuario
 let email = null; // String | Email del nuevo usuario
 let description = "description_example"; // String | Descripción para el nuevo usuario
-let universityId = 56; // Number | Universidad del usuario
+let universityId = 789; // Number | Universidad del usuario
+let degreeId = 789; // Number | Carrera del usuario
 let photo = "/path/to/file"; // File | Foto del usuario
-apiInstance.addUser(username, password, email, description, universityId, photo, (error, data, response) => {
+apiInstance.addUser(username, password, name, surnames, email, description, universityId, degreeId, photo, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -45,11 +48,14 @@ apiInstance.addUser(username, password, email, description, universityId, photo,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| Nombre del nuevo usuario | 
+ **username** | **String**| Nombre de usuario del nuevo usuario | 
  **password** | **String**| Contraseña del nuevo usuario | 
+ **name** | **String**| Nombre del nuevo usuario | 
+ **surnames** | **String**| Apellidos del nuevo usuario | 
  **email** | [**String**](String.md)| Email del nuevo usuario | 
  **description** | **String**| Descripción para el nuevo usuario | 
  **universityId** | **Number**| Universidad del usuario | 
+ **degreeId** | **Number**| Carrera del usuario | 
  **photo** | **File**| Foto del usuario | 
 
 ### Return type

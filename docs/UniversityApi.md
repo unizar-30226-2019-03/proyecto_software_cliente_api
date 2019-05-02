@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## getUniversities
 
-> UniversityGetResponse getUniversities()
+> UniversityGetResponse getUniversities(opts)
 
 Lista de universidades
 
@@ -73,7 +73,10 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
-apiInstance.getUniversities((error, data, response) => {
+let opts = {
+  'page': 56 // Number | Numero de la página a devolver
+};
+apiInstance.getUniversities(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -84,7 +87,10 @@ apiInstance.getUniversities((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Number**| Numero de la página a devolver | [optional] 
 
 ### Return type
 

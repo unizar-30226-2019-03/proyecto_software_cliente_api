@@ -5,7 +5,9 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
+[**deleteUserFromSubject**](SubjectApi.md#deleteUserFromSubject) | **DELETE** /subjects/{subject_id}/users/{user_id} | Elimina el usuario de la relacion con asignatura
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
+[**putUser**](SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
 [**updateSubject**](SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 
 
@@ -57,9 +59,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/hal+json
 
 
+## deleteUserFromSubject
+
+> deleteUserFromSubject(userId, subjectId)
+
+Elimina el usuario de la relacion con asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let userId = 789; // Number | Id del usuario
+let subjectId = 789; // Number | Id de la asignatura
+apiInstance.deleteUserFromSubject(userId, subjectId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id del usuario | 
+ **subjectId** | **Number**| Id de la asignatura | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
 ## getSubjects
 
-> SubjectGetResponse getSubjects()
+> SubjectGetResponse getSubjects(opts)
 
 Lista de asignaturas
 
@@ -73,7 +124,10 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
-apiInstance.getSubjects((error, data, response) => {
+let opts = {
+  'page': 56 // Number | Numero de la página a devolver
+};
+apiInstance.getSubjects(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -84,7 +138,10 @@ apiInstance.getSubjects((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Number**| Numero de la página a devolver | [optional] 
 
 ### Return type
 
@@ -98,6 +155,55 @@ This endpoint does not need any parameter.
 
 - **Content-Type**: Not defined
 - **Accept**: application/hal+json
+
+
+## putUser
+
+> putUser(id, body)
+
+Relacionar un usuario con una asignatura (tanto profesores como alumnos)
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+let body = 789; // Number | Link del usuario a asociar con la asignatura
+apiInstance.putUser(id, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la asignatura | 
+ **body** | **Number**| Link del usuario a asociar con la asignatura | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: text/uri-list
+- **Accept**: Not defined
 
 
 ## updateSubject

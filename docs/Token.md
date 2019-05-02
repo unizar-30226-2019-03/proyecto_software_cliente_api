@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**token** | **String** |  | [optional] 
+**id** | **Number** |  | [optional] 
+**token** | **String** |  | 
 
 

@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *SwaggerUnicast.SubjectApi* | [**putUser**](docs/SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
 *SwaggerUnicast.SubjectApi* | [**updateSubject**](docs/SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 *SwaggerUnicast.UniversityApi* | [**addUniversity**](docs/UniversityApi.md#addUniversity) | **POST** /universities | Crear nueva universidad
+*SwaggerUnicast.UniversityApi* | [**findUniversityStartsWith**](docs/UniversityApi.md#findUniversityStartsWith) | **GET** /universities/search/nameStartsWith | Busca universidades que empiecen por el nombre dado
 *SwaggerUnicast.UniversityApi* | [**getUniversities**](docs/UniversityApi.md#getUniversities) | **GET** /universities | Lista de universidades
 *SwaggerUnicast.UniversityApi* | [**updateUniversity**](docs/UniversityApi.md#updateUniversity) | **PATCH** /universities/{id} | Actualizar una universidad
 *SwaggerUnicast.UserApi* | [**addUser**](docs/UserApi.md#addUser) | **POST** /public/register | Registro de un nuevo usuario en el sistema
@@ -112,20 +113,33 @@ Class | Method | HTTP request | Description
 
  - [SwaggerUnicast.GetResponse](docs/GetResponse.md)
  - [SwaggerUnicast.GetResponseLinks](docs/GetResponseLinks.md)
+ - [SwaggerUnicast.GetUser](docs/GetUser.md)
  - [SwaggerUnicast.HalLink](docs/HalLink.md)
  - [SwaggerUnicast.InlineObject](docs/InlineObject.md)
  - [SwaggerUnicast.InlineObject1](docs/InlineObject1.md)
  - [SwaggerUnicast.InlineObject2](docs/InlineObject2.md)
  - [SwaggerUnicast.PaginationPage](docs/PaginationPage.md)
+ - [SwaggerUnicast.PostUser](docs/PostUser.md)
+ - [SwaggerUnicast.SelfLink](docs/SelfLink.md)
+ - [SwaggerUnicast.SelfLinkLinks](docs/SelfLinkLinks.md)
  - [SwaggerUnicast.Subject](docs/Subject.md)
  - [SwaggerUnicast.SubjectGetEmbedded](docs/SubjectGetEmbedded.md)
  - [SwaggerUnicast.SubjectGetResponse](docs/SubjectGetResponse.md)
  - [SwaggerUnicast.SubjectWithLinks](docs/SubjectWithLinks.md)
  - [SwaggerUnicast.Token](docs/Token.md)
  - [SwaggerUnicast.University](docs/University.md)
+ - [SwaggerUnicast.UniversityFindByNameStartsWith](docs/UniversityFindByNameStartsWith.md)
  - [SwaggerUnicast.UniversityGetEmbedded](docs/UniversityGetEmbedded.md)
+ - [SwaggerUnicast.UniversityGetEmbeddedEmbedded](docs/UniversityGetEmbeddedEmbedded.md)
+ - [SwaggerUnicast.UniversityGetEmbeddedTest](docs/UniversityGetEmbeddedTest.md)
+ - [SwaggerUnicast.UniversityGetEmbeddedTestEmbedded](docs/UniversityGetEmbeddedTestEmbedded.md)
  - [SwaggerUnicast.UniversityGetResponse](docs/UniversityGetResponse.md)
+ - [SwaggerUnicast.UniversityLinks](docs/UniversityLinks.md)
+ - [SwaggerUnicast.UniversityLinksLinks](docs/UniversityLinksLinks.md)
  - [SwaggerUnicast.UniversityWithLinks](docs/UniversityWithLinks.md)
+ - [SwaggerUnicast.User](docs/User.md)
+ - [SwaggerUnicast.UserLinks](docs/UserLinks.md)
+ - [SwaggerUnicast.UserLinksLinks](docs/UserLinksLinks.md)
  - [SwaggerUnicast.VideoToUpload](docs/VideoToUpload.md)
 
 

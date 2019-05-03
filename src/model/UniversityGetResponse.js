@@ -16,6 +16,7 @@ import GetResponse from './GetResponse';
 import GetResponseLinks from './GetResponseLinks';
 import PaginationPage from './PaginationPage';
 import UniversityGetEmbedded from './UniversityGetEmbedded';
+import UniversityGetEmbeddedEmbedded from './UniversityGetEmbeddedEmbedded';
 
 /**
  * The UniversityGetResponse model module.
@@ -27,9 +28,10 @@ class UniversityGetResponse {
      * Constructs a new <code>UniversityGetResponse</code>.
      * @alias module:model/UniversityGetResponse
      * @implements module:model/GetResponse
+     * @implements module:model/UniversityGetEmbedded
      */
     constructor() { 
-        GetResponse.initialize(this);
+        GetResponse.initialize(this);UniversityGetEmbedded.initialize(this);
         UniversityGetResponse.initialize(this);
     }
 
@@ -52,6 +54,7 @@ class UniversityGetResponse {
         if (data) {
             obj = obj || new UniversityGetResponse();
             GetResponse.constructFromObject(data, obj);
+            UniversityGetEmbedded.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('_links')) {
                 obj['_links'] = GetResponseLinks.constructFromObject(data['_links']);
@@ -60,7 +63,7 @@ class UniversityGetResponse {
                 obj['page'] = PaginationPage.constructFromObject(data['page']);
             }
             if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = UniversityGetEmbedded.constructFromObject(data['_embedded']);
+                obj['_embedded'] = UniversityGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
             }
         }
         return obj;
@@ -80,7 +83,7 @@ UniversityGetResponse.prototype['_links'] = undefined;
 UniversityGetResponse.prototype['page'] = undefined;
 
 /**
- * @member {module:model/UniversityGetEmbedded} _embedded
+ * @member {module:model/UniversityGetEmbeddedEmbedded} _embedded
  */
 UniversityGetResponse.prototype['_embedded'] = undefined;
 
@@ -94,6 +97,11 @@ GetResponse.prototype['_links'] = undefined;
  * @member {module:model/PaginationPage} page
  */
 GetResponse.prototype['page'] = undefined;
+// Implement UniversityGetEmbedded interface:
+/**
+ * @member {module:model/UniversityGetEmbeddedEmbedded} _embedded
+ */
+UniversityGetEmbedded.prototype['_embedded'] = undefined;
 
 
 

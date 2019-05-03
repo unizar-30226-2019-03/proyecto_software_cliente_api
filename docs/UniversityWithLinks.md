@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | **Object** |  | [optional] 
+**links** | [**UniversityLinksLinks**](UniversityLinksLinks.md) |  | [optional] 
 
 

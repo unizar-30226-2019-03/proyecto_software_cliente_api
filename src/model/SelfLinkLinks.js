@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import UniversityLinksLinks from './UniversityLinksLinks';
+import HalLink from './HalLink';
 
 /**
- * The UniversityLinks model module.
- * @module model/UniversityLinks
+ * The SelfLinkLinks model module.
+ * @module model/SelfLinkLinks
  * @version 1.0.6
  */
-class UniversityLinks {
+class SelfLinkLinks {
     /**
-     * Constructs a new <code>UniversityLinks</code>.
-     * @alias module:model/UniversityLinks
+     * Constructs a new <code>SelfLinkLinks</code>.
+     * @alias module:model/SelfLinkLinks
      */
     constructor() { 
         
-        UniversityLinks.initialize(this);
+        SelfLinkLinks.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class UniversityLinks {
     }
 
     /**
-     * Constructs a <code>UniversityLinks</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>SelfLinkLinks</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/UniversityLinks} obj Optional instance to populate.
-     * @return {module:model/UniversityLinks} The populated <code>UniversityLinks</code> instance.
+     * @param {module:model/SelfLinkLinks} obj Optional instance to populate.
+     * @return {module:model/SelfLinkLinks} The populated <code>SelfLinkLinks</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new UniversityLinks();
+            obj = obj || new SelfLinkLinks();
 
-            if (data.hasOwnProperty('_links')) {
-                obj['_links'] = UniversityLinksLinks.constructFromObject(data['_links']);
+            if (data.hasOwnProperty('self')) {
+                obj['self'] = HalLink.constructFromObject(data['self']);
             }
         }
         return obj;
@@ -59,14 +59,14 @@ class UniversityLinks {
 }
 
 /**
- * @member {module:model/UniversityLinksLinks} _links
+ * @member {module:model/HalLink} self
  */
-UniversityLinks.prototype['_links'] = undefined;
+SelfLinkLinks.prototype['self'] = undefined;
 
 
 
 
 
 
-export default UniversityLinks;
+export default SelfLinkLinks;
 

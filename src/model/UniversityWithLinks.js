@@ -13,6 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import University from './University';
+import UniversityLinks from './UniversityLinks';
+import UniversityLinksLinks from './UniversityLinksLinks';
 
 /**
  * The UniversityWithLinks model module.
@@ -25,10 +27,11 @@ class UniversityWithLinks {
      * @alias module:model/UniversityWithLinks
      * @extends module:model/University
      * @implements module:model/University
+     * @implements module:model/UniversityLinks
      * @param name {String} 
      */
     constructor(name) { 
-        University.initialize(this, name);
+        University.initialize(this, name);UniversityLinks.initialize(this);
         UniversityWithLinks.initialize(this, name);
     }
 
@@ -52,9 +55,10 @@ class UniversityWithLinks {
             obj = obj || new UniversityWithLinks();
             University.constructFromObject(data, obj);
             University.constructFromObject(data, obj);
+            UniversityLinks.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('_links')) {
-                obj['_links'] = ApiClient.convertToType(data['_links'], Object);
+                obj['_links'] = UniversityLinksLinks.constructFromObject(data['_links']);
             }
         }
         return obj;
@@ -64,7 +68,7 @@ class UniversityWithLinks {
 }
 
 /**
- * @member {Object} _links
+ * @member {module:model/UniversityLinksLinks} _links
  */
 UniversityWithLinks.prototype['_links'] = undefined;
 
@@ -78,6 +82,11 @@ University.prototype['id'] = undefined;
  * @member {String} name
  */
 University.prototype['name'] = undefined;
+// Implement UniversityLinks interface:
+/**
+ * @member {module:model/UniversityLinksLinks} _links
+ */
+UniversityLinks.prototype['_links'] = undefined;
 
 
 

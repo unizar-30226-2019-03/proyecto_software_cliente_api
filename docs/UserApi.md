@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
+> PostUser addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
 
 Registro de un nuevo usuario en el sistema
 
@@ -38,7 +38,7 @@ apiInstance.addUser(username, password, name, surnames, email, description, univ
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**PostUser**](PostUser.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/hal+json
 
 
 ## authUser
@@ -121,7 +121,7 @@ No authorization required
 
 ## getUser
 
-> getUser(id)
+> GetUser getUser(id)
 
 Obtener un usuario
 
@@ -140,7 +140,7 @@ apiInstance.getUser(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GetUser**](GetUser.md)
 
 ### Authorization
 
@@ -163,12 +163,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/hal+json
 
 
 ## updateUser
 
-> updateUser(opts)
+> PostUser updateUser(opts)
 
 Actualizacion de un usuario en el sistema
 
@@ -196,7 +196,7 @@ apiInstance.updateUser(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**PostUser**](PostUser.md)
 
 ### Authorization
 
@@ -224,5 +224,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/hal+json
 

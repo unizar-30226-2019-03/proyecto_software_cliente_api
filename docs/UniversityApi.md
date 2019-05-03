@@ -5,6 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUniversity**](UniversityApi.md#addUniversity) | **POST** /universities | Crear nueva universidad
+[**findUniversityStartsWith**](UniversityApi.md#findUniversityStartsWith) | **GET** /universities/search/nameStartsWith | Busca universidades que empiecen por el nombre dado
 [**getUniversities**](UniversityApi.md#getUniversities) | **GET** /universities | Lista de universidades
 [**updateUniversity**](UniversityApi.md#updateUniversity) | **PATCH** /universities/{id} | Actualizar una universidad
 
@@ -57,6 +58,51 @@ Name | Type | Description  | Notes
 - **Accept**: application/hal+json
 
 
+## findUniversityStartsWith
+
+> UniversityGetEmbeddedTest findUniversityStartsWith(opts)
+
+Busca universidades que empiecen por el nombre dado
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+
+let apiInstance = new SwaggerUnicast.UniversityApi();
+let opts = {
+  'name': "name_example" // String | Comienzo del nombre de la universidad a buscar
+};
+apiInstance.findUniversityStartsWith(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Comienzo del nombre de la universidad a buscar | [optional] 
+
+### Return type
+
+[**UniversityGetEmbeddedTest**](UniversityGetEmbeddedTest.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getUniversities
 
 > UniversityGetResponse getUniversities(opts)
@@ -67,10 +113,6 @@ Lista de universidades
 
 ```javascript
 import SwaggerUnicast from 'swagger_unicast';
-let defaultClient = SwaggerUnicast.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let opts = {
@@ -98,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 

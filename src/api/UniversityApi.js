@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import University from '../model/University';
+import UniversityGetEmbeddedTest from '../model/UniversityGetEmbeddedTest';
 import UniversityGetResponse from '../model/UniversityGetResponse';
 import UniversityWithLinks from '../model/UniversityWithLinks';
 
@@ -78,6 +79,46 @@ export default class UniversityApi {
     }
 
     /**
+     * Callback function to receive the result of the findUniversityStartsWith operation.
+     * @callback module:api/UniversityApi~findUniversityStartsWithCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UniversityGetEmbeddedTest} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Busca universidades que empiecen por el nombre dado
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.name Comienzo del nombre de la universidad a buscar
+     * @param {module:api/UniversityApi~findUniversityStartsWithCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UniversityGetEmbeddedTest}
+     */
+    findUniversityStartsWith(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'name': opts['name']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = UniversityGetEmbeddedTest;
+      return this.apiClient.callApi(
+        '/universities/search/nameStartsWith', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getUniversities operation.
      * @callback module:api/UniversityApi~getUniversitiesCallback
      * @param {String} error Error message, if any.
@@ -106,7 +147,7 @@ export default class UniversityApi {
       let formParams = {
       };
 
-      let authNames = ['bearerAuth'];
+      let authNames = [];
       let contentTypes = [];
       let accepts = ['application/hal+json'];
       let returnType = UniversityGetResponse;

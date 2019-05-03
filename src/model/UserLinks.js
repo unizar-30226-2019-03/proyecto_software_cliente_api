@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import UniversityLinksLinks from './UniversityLinksLinks';
+import UserLinksLinks from './UserLinksLinks';
 
 /**
- * The UniversityLinks model module.
- * @module model/UniversityLinks
+ * The UserLinks model module.
+ * @module model/UserLinks
  * @version 1.0.6
  */
-class UniversityLinks {
+class UserLinks {
     /**
-     * Constructs a new <code>UniversityLinks</code>.
-     * @alias module:model/UniversityLinks
+     * Constructs a new <code>UserLinks</code>.
+     * @alias module:model/UserLinks
      */
     constructor() { 
         
-        UniversityLinks.initialize(this);
+        UserLinks.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class UniversityLinks {
     }
 
     /**
-     * Constructs a <code>UniversityLinks</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserLinks</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/UniversityLinks} obj Optional instance to populate.
-     * @return {module:model/UniversityLinks} The populated <code>UniversityLinks</code> instance.
+     * @param {module:model/UserLinks} obj Optional instance to populate.
+     * @return {module:model/UserLinks} The populated <code>UserLinks</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new UniversityLinks();
+            obj = obj || new UserLinks();
 
             if (data.hasOwnProperty('_links')) {
-                obj['_links'] = UniversityLinksLinks.constructFromObject(data['_links']);
+                obj['_links'] = UserLinksLinks.constructFromObject(data['_links']);
             }
         }
         return obj;
@@ -59,14 +59,14 @@ class UniversityLinks {
 }
 
 /**
- * @member {module:model/UniversityLinksLinks} _links
+ * @member {module:model/UserLinksLinks} _links
  */
-UniversityLinks.prototype['_links'] = undefined;
+UserLinks.prototype['_links'] = undefined;
 
 
 
 
 
 
-export default UniversityLinks;
+export default UserLinks;
 

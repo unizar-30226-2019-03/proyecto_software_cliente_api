@@ -13,6 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
+import GetUser from '../model/GetUser';
+import PostUser from '../model/PostUser';
 import Token from '../model/Token';
 
 /**
@@ -38,7 +40,7 @@ export default class UserApi {
      * Callback function to receive the result of the addUser operation.
      * @callback module:api/UserApi~addUserCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/PostUser} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -55,6 +57,7 @@ export default class UserApi {
      * @param {Number} degreeId Carrera del usuario
      * @param {File} photo Foto del usuario
      * @param {module:api/UserApi~addUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostUser}
      */
     addUser(username, password, name, surnames, email, description, universityId, degreeId, photo, callback) {
       let postBody = null;
@@ -115,8 +118,8 @@ export default class UserApi {
 
       let authNames = [];
       let contentTypes = ['multipart/form-data'];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/hal+json'];
+      let returnType = PostUser;
       return this.apiClient.callApi(
         '/public/register', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -177,7 +180,7 @@ export default class UserApi {
      * Callback function to receive the result of the getUser operation.
      * @callback module:api/UserApi~getUserCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/GetUser} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -185,6 +188,7 @@ export default class UserApi {
      * Obtener un usuario
      * @param {Number} id Id del usuario
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetUser}
      */
     getUser(id, callback) {
       let postBody = null;
@@ -205,8 +209,8 @@ export default class UserApi {
 
       let authNames = ['bearerAuth'];
       let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/hal+json'];
+      let returnType = GetUser;
       return this.apiClient.callApi(
         '/users/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -218,7 +222,7 @@ export default class UserApi {
      * Callback function to receive the result of the updateUser operation.
      * @callback module:api/UserApi~updateUserCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/PostUser} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -233,6 +237,7 @@ export default class UserApi {
      * @param {Number} opts.universityId Nueva universidad del usuario
      * @param {File} opts.photo Nueva foto del usuario
      * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostUser}
      */
     updateUser(opts, callback) {
       opts = opts || {};
@@ -255,8 +260,8 @@ export default class UserApi {
 
       let authNames = ['bearerAuth'];
       let contentTypes = ['multipart/form-data'];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/hal+json'];
+      let returnType = PostUser;
       return this.apiClient.callApi(
         '/users/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

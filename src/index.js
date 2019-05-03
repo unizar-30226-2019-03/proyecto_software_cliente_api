@@ -15,20 +15,33 @@
 import ApiClient from './ApiClient';
 import GetResponse from './model/GetResponse';
 import GetResponseLinks from './model/GetResponseLinks';
+import GetUser from './model/GetUser';
 import HalLink from './model/HalLink';
 import InlineObject from './model/InlineObject';
 import InlineObject1 from './model/InlineObject1';
 import InlineObject2 from './model/InlineObject2';
 import PaginationPage from './model/PaginationPage';
+import PostUser from './model/PostUser';
+import SelfLink from './model/SelfLink';
+import SelfLinkLinks from './model/SelfLinkLinks';
 import Subject from './model/Subject';
 import SubjectGetEmbedded from './model/SubjectGetEmbedded';
 import SubjectGetResponse from './model/SubjectGetResponse';
 import SubjectWithLinks from './model/SubjectWithLinks';
 import Token from './model/Token';
 import University from './model/University';
+import UniversityFindByNameStartsWith from './model/UniversityFindByNameStartsWith';
 import UniversityGetEmbedded from './model/UniversityGetEmbedded';
+import UniversityGetEmbeddedEmbedded from './model/UniversityGetEmbeddedEmbedded';
+import UniversityGetEmbeddedTest from './model/UniversityGetEmbeddedTest';
+import UniversityGetEmbeddedTestEmbedded from './model/UniversityGetEmbeddedTestEmbedded';
 import UniversityGetResponse from './model/UniversityGetResponse';
+import UniversityLinks from './model/UniversityLinks';
+import UniversityLinksLinks from './model/UniversityLinksLinks';
 import UniversityWithLinks from './model/UniversityWithLinks';
+import User from './model/User';
+import UserLinks from './model/UserLinks';
+import UserLinksLinks from './model/UserLinksLinks';
 import VideoToUpload from './model/VideoToUpload';
 import SubjectApi from './api/SubjectApi';
 import UniversityApi from './api/UniversityApi';
@@ -87,6 +100,12 @@ export {
     GetResponseLinks,
 
     /**
+     * The GetUser model constructor.
+     * @property {module:model/GetUser}
+     */
+    GetUser,
+
+    /**
      * The HalLink model constructor.
      * @property {module:model/HalLink}
      */
@@ -115,6 +134,24 @@ export {
      * @property {module:model/PaginationPage}
      */
     PaginationPage,
+
+    /**
+     * The PostUser model constructor.
+     * @property {module:model/PostUser}
+     */
+    PostUser,
+
+    /**
+     * The SelfLink model constructor.
+     * @property {module:model/SelfLink}
+     */
+    SelfLink,
+
+    /**
+     * The SelfLinkLinks model constructor.
+     * @property {module:model/SelfLinkLinks}
+     */
+    SelfLinkLinks,
 
     /**
      * The Subject model constructor.
@@ -153,10 +190,34 @@ export {
     University,
 
     /**
+     * The UniversityFindByNameStartsWith model constructor.
+     * @property {module:model/UniversityFindByNameStartsWith}
+     */
+    UniversityFindByNameStartsWith,
+
+    /**
      * The UniversityGetEmbedded model constructor.
      * @property {module:model/UniversityGetEmbedded}
      */
     UniversityGetEmbedded,
+
+    /**
+     * The UniversityGetEmbeddedEmbedded model constructor.
+     * @property {module:model/UniversityGetEmbeddedEmbedded}
+     */
+    UniversityGetEmbeddedEmbedded,
+
+    /**
+     * The UniversityGetEmbeddedTest model constructor.
+     * @property {module:model/UniversityGetEmbeddedTest}
+     */
+    UniversityGetEmbeddedTest,
+
+    /**
+     * The UniversityGetEmbeddedTestEmbedded model constructor.
+     * @property {module:model/UniversityGetEmbeddedTestEmbedded}
+     */
+    UniversityGetEmbeddedTestEmbedded,
 
     /**
      * The UniversityGetResponse model constructor.
@@ -165,10 +226,40 @@ export {
     UniversityGetResponse,
 
     /**
+     * The UniversityLinks model constructor.
+     * @property {module:model/UniversityLinks}
+     */
+    UniversityLinks,
+
+    /**
+     * The UniversityLinksLinks model constructor.
+     * @property {module:model/UniversityLinksLinks}
+     */
+    UniversityLinksLinks,
+
+    /**
      * The UniversityWithLinks model constructor.
      * @property {module:model/UniversityWithLinks}
      */
     UniversityWithLinks,
+
+    /**
+     * The User model constructor.
+     * @property {module:model/User}
+     */
+    User,
+
+    /**
+     * The UserLinks model constructor.
+     * @property {module:model/UserLinks}
+     */
+    UserLinks,
+
+    /**
+     * The UserLinksLinks model constructor.
+     * @property {module:model/UserLinksLinks}
+     */
+    UserLinksLinks,
 
     /**
      * The VideoToUpload model constructor.

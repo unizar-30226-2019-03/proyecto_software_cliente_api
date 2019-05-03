@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import UniversityWithLinks from './UniversityWithLinks';
+import UniversityGetEmbeddedEmbedded from './UniversityGetEmbeddedEmbedded';
 
 /**
  * The UniversityGetEmbedded model module.
@@ -48,8 +48,8 @@ class UniversityGetEmbedded {
         if (data) {
             obj = obj || new UniversityGetEmbedded();
 
-            if (data.hasOwnProperty('universities')) {
-                obj['universities'] = ApiClient.convertToType(data['universities'], [UniversityWithLinks]);
+            if (data.hasOwnProperty('_embedded')) {
+                obj['_embedded'] = UniversityGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
             }
         }
         return obj;
@@ -59,9 +59,9 @@ class UniversityGetEmbedded {
 }
 
 /**
- * @member {Array.<module:model/UniversityWithLinks>} universities
+ * @member {module:model/UniversityGetEmbeddedEmbedded} _embedded
  */
-UniversityGetEmbedded.prototype['universities'] = undefined;
+UniversityGetEmbedded.prototype['_embedded'] = undefined;
 
 
 

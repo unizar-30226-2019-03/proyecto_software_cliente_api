@@ -92,7 +92,7 @@ export default class VideoApi {
 
       let authNames = ['bearerAuth'];
       let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/hal+json'];
+      let accepts = ['application/json'];
       let returnType = Video;
       return this.apiClient.callApi(
         '/upload/video', 'POST',

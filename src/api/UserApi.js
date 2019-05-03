@@ -259,7 +259,7 @@ export default class UserApi {
 
       let authNames = ['bearerAuth'];
       let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/hal+json'];
+      let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
         '/users/update', 'POST',

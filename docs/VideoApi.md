@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: application/hal+json
+- **Accept**: application/json
 
 
 ## getVideos

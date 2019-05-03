@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addSubject
 
-> SubjectWithLinks addSubject(subject)
+> Subject addSubject(subject)
 
 Crear nueva asignatura
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectWithLinks**](SubjectWithLinks.md)
+[**Subject**](Subject.md)
 
 ### Authorization
 
@@ -118,10 +118,6 @@ Lista de asignaturas
 
 ```javascript
 import SwaggerUnicast from 'swagger_unicast';
-let defaultClient = SwaggerUnicast.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let opts = {
@@ -149,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,7 +204,7 @@ null (empty response body)
 
 ## updateSubject
 
-> SubjectWithLinks updateSubject(id, subject)
+> Subject updateSubject(id, subject)
 
 Actualizar una asignatura
 
@@ -243,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectWithLinks**](SubjectWithLinks.md)
+[**Subject**](Subject.md)
 
 ### Authorization
 

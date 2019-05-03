@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## addVideo
 
-> addVideo(file, title, description, subjectId)
+> Video addVideo(file, thumbnail, title, description, subjectId)
 
 Subida de un nuevo video
 
@@ -28,14 +28,15 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
 let file = "/path/to/file"; // File | 
+let thumbnail = "/path/to/file"; // File | 
 let title = "title_example"; // String | 
 let description = "description_example"; // String | 
 let subjectId = 789; // Number | 
-apiInstance.addVideo(file, title, description, subjectId, (error, data, response) => {
+apiInstance.addVideo(file, thumbnail, title, description, subjectId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -46,13 +47,14 @@ apiInstance.addVideo(file, title, description, subjectId, (error, data, response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **File**|  | 
+ **thumbnail** | **File**|  | 
  **title** | **String**|  | 
  **description** | **String**|  | 
  **subjectId** | **Number**|  | 
 
 ### Return type
 
-null (empty response body)
+[**Video**](Video.md)
 
 ### Authorization
 
@@ -61,7 +63,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/hal+json
 
 
 ## getVideos

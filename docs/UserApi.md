@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> PostUser addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
+> User addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
 
 Registro de un nuevo usuario en el sistema
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUser**](PostUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: application/hal+json
+- **Accept**: application/json
 
 
 ## authUser
@@ -121,7 +121,7 @@ No authorization required
 
 ## getUser
 
-> GetUser getUser(id)
+> User getUser(id)
 
 Obtener un usuario
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUser**](GetUser.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> PostUser updateUser(opts)
+> User updateUser(opts)
 
 Actualizacion de un usuario en el sistema
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUser**](PostUser.md)
+[**User**](User.md)
 
 ### Authorization
 

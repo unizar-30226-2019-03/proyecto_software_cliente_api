@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subjects** | [**[SubjectWithLinks]**](SubjectWithLinks.md) |  | [optional] 
+**embedded** | [**SubjectGetEmbeddedEmbedded**](SubjectGetEmbeddedEmbedded.md) |  | [optional] 
 
 

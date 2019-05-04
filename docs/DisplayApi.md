@@ -30,7 +30,8 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'displayWithVideo'" // String | Incluir si se quiere obtener tambien los videos en la respuesta
 };
 apiInstance.getDisplaysByUser(id, opts, (error, data, response) => {
   if (error) {
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien los videos en la respuesta | [optional] [default to &#39;displayWithVideo&#39;]
 
 ### Return type
 

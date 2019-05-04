@@ -124,7 +124,9 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'name': "name_example" // String | String a buscar en el nombre de asignaturas
 };
 apiInstance.findSubjectsContainingName(opts, (error, data, response) => {
@@ -141,7 +143,9 @@ apiInstance.findSubjectsContainingName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| String a buscar en el nombre de asignaturas | [optional] 
 
 ### Return type
@@ -171,7 +175,9 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'name': "name_example" // String | Comienzo del nombre de la asignatura a buscar
 };
 apiInstance.findSubjectsStartsWithName(opts, (error, data, response) => {
@@ -188,7 +194,9 @@ apiInstance.findSubjectsStartsWithName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| Comienzo del nombre de la asignatura a buscar | [optional] 
 
 ### Return type
@@ -218,7 +226,9 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
   'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
 };
@@ -236,7 +246,9 @@ apiInstance.getSubjects(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 
@@ -272,7 +284,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let id = 789; // Number | Id de la asignatura
 let opts = {
-  'cacheControl': "'no-cache'" // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
 };
 apiInstance.getVideosFromSubject(id, opts, (error, data, response) => {
   if (error) {
@@ -289,7 +303,9 @@ apiInstance.getVideosFromSubject(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la asignatura | 
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
 
 ### Return type
 

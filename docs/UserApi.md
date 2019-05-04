@@ -143,7 +143,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'name': "name_example" // String | String a buscar en el nombre de usuarios
 };
 apiInstance.findUsersContainingName(opts, (error, data, response) => {
@@ -160,7 +162,9 @@ apiInstance.findUsersContainingName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| String a buscar en el nombre de usuarios | [optional] 
 
 ### Return type
@@ -194,7 +198,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'surnames': "surnames_example" // String | String a buscar en los apellidos de usuarios
 };
 apiInstance.findUsersContainingSurname(opts, (error, data, response) => {
@@ -211,7 +217,9 @@ apiInstance.findUsersContainingSurname(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **surnames** | **String**| String a buscar en los apellidos de usuarios | [optional] 
 
 ### Return type
@@ -245,7 +253,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'username': "username_example" // String | String a buscar en el nombre de usuarios
 };
 apiInstance.findUsersContainingUsername(opts, (error, data, response) => {
@@ -262,7 +272,9 @@ apiInstance.findUsersContainingUsername(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **username** | **String**| String a buscar en el nombre de usuarios | [optional] 
 
 ### Return type
@@ -296,7 +308,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'name': "name_example" // String | Comienzo del nombre del usuario a buscar
 };
 apiInstance.findUsersStartsWithName(opts, (error, data, response) => {
@@ -313,7 +327,9 @@ apiInstance.findUsersStartsWithName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| Comienzo del nombre del usuario a buscar | [optional] 
 
 ### Return type
@@ -347,7 +363,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'surnames': "surnames_example" // String | Comienzo de los apellidos del usuario a buscar
 };
 apiInstance.findUsersStartsWithSurnames(opts, (error, data, response) => {
@@ -364,7 +382,9 @@ apiInstance.findUsersStartsWithSurnames(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **surnames** | **String**| Comienzo de los apellidos del usuario a buscar | [optional] 
 
 ### Return type
@@ -398,7 +418,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'username': "username_example" // String | Comienzo del username del usuario a buscar
 };
 apiInstance.findUsersStartsWithUsername(opts, (error, data, response) => {
@@ -415,7 +437,9 @@ apiInstance.findUsersStartsWithUsername(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **username** | **String**| Comienzo del username del usuario a buscar | [optional] 
 
 ### Return type
@@ -450,7 +474,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new SwaggerUnicast.UserApi();
 let id = 789; // Number | Id del usuario
 let opts = {
-  'cacheControl': "'no-cache'" // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
 };
 apiInstance.getSubjectsOfUser(id, opts, (error, data, response) => {
   if (error) {
@@ -467,7 +493,9 @@ apiInstance.getSubjectsOfUser(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id del usuario | 
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
 
 ### Return type
 
@@ -501,7 +529,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new SwaggerUnicast.UserApi();
 let id = 789; // Number | Id del usuario
 let opts = {
-  'cacheControl': "'no-cache'" // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
 };
 apiInstance.getUser(id, opts, (error, data, response) => {
   if (error) {
@@ -518,7 +548,9 @@ apiInstance.getUser(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id del usuario | 
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
 
 ### Return type
 

@@ -85,7 +85,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'title': "title_example" // String | String a buscar en el titulo de videos
 };
 apiInstance.findVideosContainingTitle(opts, (error, data, response) => {
@@ -102,7 +104,9 @@ apiInstance.findVideosContainingTitle(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **title** | **String**| String a buscar en el titulo de videos | [optional] 
 
 ### Return type
@@ -136,7 +140,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'title': "title_example" // String | Comienzo del nombre de los videos a buscar
 };
 apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
@@ -153,7 +159,9 @@ apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **title** | **String**| Comienzo del nombre de los videos a buscar | [optional] 
 
 ### Return type
@@ -187,7 +195,9 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
 let opts = {
-  'cacheControl': "'no-cache'", // String | 
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
   'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
 };
@@ -205,7 +215,9 @@ apiInstance.getVideos(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 

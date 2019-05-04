@@ -143,6 +143,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'name': "name_example" // String | String a buscar en el nombre de usuarios
 };
 apiInstance.findUsersContainingName(opts, (error, data, response) => {
@@ -159,6 +160,7 @@ apiInstance.findUsersContainingName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **name** | **String**| String a buscar en el nombre de usuarios | [optional] 
 
 ### Return type
@@ -192,6 +194,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'surnames': "surnames_example" // String | String a buscar en los apellidos de usuarios
 };
 apiInstance.findUsersContainingSurname(opts, (error, data, response) => {
@@ -208,6 +211,7 @@ apiInstance.findUsersContainingSurname(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **surnames** | **String**| String a buscar en los apellidos de usuarios | [optional] 
 
 ### Return type
@@ -241,6 +245,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'username': "username_example" // String | String a buscar en el nombre de usuarios
 };
 apiInstance.findUsersContainingUsername(opts, (error, data, response) => {
@@ -257,6 +262,7 @@ apiInstance.findUsersContainingUsername(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **username** | **String**| String a buscar en el nombre de usuarios | [optional] 
 
 ### Return type
@@ -290,6 +296,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'name': "name_example" // String | Comienzo del nombre del usuario a buscar
 };
 apiInstance.findUsersStartsWithName(opts, (error, data, response) => {
@@ -306,6 +313,7 @@ apiInstance.findUsersStartsWithName(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **name** | **String**| Comienzo del nombre del usuario a buscar | [optional] 
 
 ### Return type
@@ -339,6 +347,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'surnames': "surnames_example" // String | Comienzo de los apellidos del usuario a buscar
 };
 apiInstance.findUsersStartsWithSurnames(opts, (error, data, response) => {
@@ -355,6 +364,7 @@ apiInstance.findUsersStartsWithSurnames(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **surnames** | **String**| Comienzo de los apellidos del usuario a buscar | [optional] 
 
 ### Return type
@@ -388,6 +398,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'username': "username_example" // String | Comienzo del username del usuario a buscar
 };
 apiInstance.findUsersStartsWithUsername(opts, (error, data, response) => {
@@ -404,6 +415,7 @@ apiInstance.findUsersStartsWithUsername(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **username** | **String**| Comienzo del username del usuario a buscar | [optional] 
 
 ### Return type
@@ -422,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## getSubjectsOfUser
 
-> SubjectGetEmbedded getSubjectsOfUser(id)
+> SubjectGetEmbedded getSubjectsOfUser(id, opts)
 
 Obtener las asignaturas de un usuario
 
@@ -437,7 +449,10 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let id = 789; // Number | Id del usuario
-apiInstance.getSubjectsOfUser(id, (error, data, response) => {
+let opts = {
+  'cacheControl': "'no-cache'" // String | 
+};
+apiInstance.getSubjectsOfUser(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -452,6 +467,7 @@ apiInstance.getSubjectsOfUser(id, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
 
 ### Return type
 
@@ -469,7 +485,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> User getUser(id)
+> User getUser(id, opts)
 
 Obtener un usuario
 
@@ -484,7 +500,10 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UserApi();
 let id = 789; // Number | Id del usuario
-apiInstance.getUser(id, (error, data, response) => {
+let opts = {
+  'cacheControl': "'no-cache'" // String | 
+};
+apiInstance.getUser(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -499,6 +518,7 @@ apiInstance.getUser(id, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
 
 ### Return type
 

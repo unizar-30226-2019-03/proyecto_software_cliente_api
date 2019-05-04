@@ -73,6 +73,7 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'name': "name_example" // String | String a buscar en el nombre
 };
 apiInstance.findUniversitiesContaining(opts, (error, data, response) => {
@@ -89,6 +90,7 @@ apiInstance.findUniversitiesContaining(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **name** | **String**| String a buscar en el nombre | [optional] 
 
 ### Return type
@@ -118,6 +120,7 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'name': "name_example" // String | Comienzo del nombre de la universidad a buscar
 };
 apiInstance.findUniversitiesStartsWith(opts, (error, data, response) => {
@@ -134,6 +137,7 @@ apiInstance.findUniversitiesStartsWith(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **name** | **String**| Comienzo del nombre de la universidad a buscar | [optional] 
 
 ### Return type
@@ -163,6 +167,7 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let opts = {
+  'cacheControl': "'no-cache'", // String | 
   'page': 56, // Number | Número de la página a devolver
   'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
 };
@@ -180,6 +185,7 @@ apiInstance.getUniversities(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 

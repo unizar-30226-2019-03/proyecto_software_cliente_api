@@ -537,6 +537,8 @@ let opts = {
   'password': "password_example", // String | Nueva contraseña del usuario
   'email': null, // String | Nuevo email del usuario
   'description': "description_example", // String | Nueva descripción para el usuario
+  'name': "name_example", // String | Nuevo nombre para el usuario
+  'surnames': "surnames_example", // String | Nuevos apellidos para el usuario
   'universityId': 56, // Number | Nueva universidad del usuario
   'degreeId': 56, // Number | Nueva carrera del usuario
   'photo': "/path/to/file" // File | Nueva foto del usuario
@@ -559,6 +561,8 @@ Name | Type | Description  | Notes
  **password** | **String**| Nueva contraseña del usuario | [optional] 
  **email** | [**String**](String.md)| Nuevo email del usuario | [optional] 
  **description** | **String**| Nueva descripción para el usuario | [optional] 
+ **name** | **String**| Nuevo nombre para el usuario | [optional] 
+ **surnames** | **String**| Nuevos apellidos para el usuario | [optional] 
  **universityId** | **Number**| Nueva universidad del usuario | [optional] 
  **degreeId** | **Number**| Nueva carrera del usuario | [optional] 
  **photo** | **File**| Nueva foto del usuario | [optional] 

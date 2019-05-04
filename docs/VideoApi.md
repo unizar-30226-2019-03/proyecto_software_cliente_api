@@ -5,6 +5,8 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addVideo**](VideoApi.md#addVideo) | **POST** /upload/video | Subida de un nuevo video
+[**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
+[**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
 [**getVideos**](VideoApi.md#getVideos) | **GET** /videos | Lista de videos
 
 
@@ -66,9 +68,107 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## findVideosContainingTitle
+
+> VideoGetResponse findVideosContainingTitle(opts)
+
+Busca videos que contengan una string en el titulo
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let opts = {
+  'title': "title_example" // String | String a buscar en el titulo de videos
+};
+apiInstance.findVideosContainingTitle(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **title** | **String**| String a buscar en el titulo de videos | [optional] 
+
+### Return type
+
+[**VideoGetResponse**](VideoGetResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## findVideosStartsWithTitle
+
+> Video findVideosStartsWithTitle(opts)
+
+Busca videos que empiecen por un nombre dado
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let opts = {
+  'title': "title_example" // String | Comienzo del nombre de los videos a buscar
+};
+apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **title** | **String**| Comienzo del nombre de los videos a buscar | [optional] 
+
+### Return type
+
+[**Video**](Video.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getVideos
 
-> getVideos()
+> VideoGetResponse getVideos(opts)
 
 Lista de videos
 
@@ -82,22 +182,30 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
-apiInstance.getVideos((error, data, response) => {
+let opts = {
+  'page': 56, // Number | Número de la página a devolver
+  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+};
+apiInstance.getVideos(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Number**| Número de la página a devolver | [optional] 
+ **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 
 ### Return type
 
-null (empty response body)
+[**VideoGetResponse**](VideoGetResponse.md)
 
 ### Authorization
 
@@ -106,5 +214,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 

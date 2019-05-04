@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import SubjectGetEmbeddedEmbedded from './SubjectGetEmbeddedEmbedded';
+import User from './User';
 
 /**
- * The SubjectGetEmbedded model module.
- * @module model/SubjectGetEmbedded
+ * The UserGetEmbeddedEmbedded model module.
+ * @module model/UserGetEmbeddedEmbedded
  * @version 1.0.10
  */
-class SubjectGetEmbedded {
+class UserGetEmbeddedEmbedded {
     /**
-     * Constructs a new <code>SubjectGetEmbedded</code>.
-     * @alias module:model/SubjectGetEmbedded
+     * Constructs a new <code>UserGetEmbeddedEmbedded</code>.
+     * @alias module:model/UserGetEmbeddedEmbedded
      */
     constructor() { 
         
-        SubjectGetEmbedded.initialize(this);
+        UserGetEmbeddedEmbedded.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class SubjectGetEmbedded {
     }
 
     /**
-     * Constructs a <code>SubjectGetEmbedded</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserGetEmbeddedEmbedded</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SubjectGetEmbedded} obj Optional instance to populate.
-     * @return {module:model/SubjectGetEmbedded} The populated <code>SubjectGetEmbedded</code> instance.
+     * @param {module:model/UserGetEmbeddedEmbedded} obj Optional instance to populate.
+     * @return {module:model/UserGetEmbeddedEmbedded} The populated <code>UserGetEmbeddedEmbedded</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SubjectGetEmbedded();
+            obj = obj || new UserGetEmbeddedEmbedded();
 
-            if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = SubjectGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [User]);
             }
         }
         return obj;
@@ -59,14 +59,14 @@ class SubjectGetEmbedded {
 }
 
 /**
- * @member {module:model/SubjectGetEmbeddedEmbedded} _embedded
+ * @member {Array.<module:model/User>} users
  */
-SubjectGetEmbedded.prototype['_embedded'] = undefined;
+UserGetEmbeddedEmbedded.prototype['users'] = undefined;
 
 
 
 
 
 
-export default SubjectGetEmbedded;
+export default UserGetEmbeddedEmbedded;
 

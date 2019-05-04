@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **email** | **String** | Nuevo email del usuario | [optional] 
 **description** | **String** | Nueva descripción para el usuario | [optional] 
 **universityId** | **Number** | Nueva universidad del usuario | [optional] 
+**degreeId** | **Number** | Nueva carrera del usuario | [optional] 
 **photo** | **File** | Nueva foto del usuario | [optional] 
 
 

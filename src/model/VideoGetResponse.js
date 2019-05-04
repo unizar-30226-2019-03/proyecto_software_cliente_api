@@ -14,24 +14,24 @@
 import ApiClient from '../ApiClient';
 import GetResponse from './GetResponse';
 import PaginationPage from './PaginationPage';
-import SubjectGetEmbedded from './SubjectGetEmbedded';
-import SubjectGetEmbeddedEmbedded from './SubjectGetEmbeddedEmbedded';
+import VideoGetEmbedded from './VideoGetEmbedded';
+import VideoGetEmbeddedEmbedded from './VideoGetEmbeddedEmbedded';
 
 /**
- * The SubjectGetResponse model module.
- * @module model/SubjectGetResponse
+ * The VideoGetResponse model module.
+ * @module model/VideoGetResponse
  * @version 1.0.10
  */
-class SubjectGetResponse {
+class VideoGetResponse {
     /**
-     * Constructs a new <code>SubjectGetResponse</code>.
-     * @alias module:model/SubjectGetResponse
+     * Constructs a new <code>VideoGetResponse</code>.
+     * @alias module:model/VideoGetResponse
      * @implements module:model/GetResponse
-     * @implements module:model/SubjectGetEmbedded
+     * @implements module:model/VideoGetEmbedded
      */
     constructor() { 
-        GetResponse.initialize(this);SubjectGetEmbedded.initialize(this);
-        SubjectGetResponse.initialize(this);
+        GetResponse.initialize(this);VideoGetEmbedded.initialize(this);
+        VideoGetResponse.initialize(this);
     }
 
     /**
@@ -43,23 +43,23 @@ class SubjectGetResponse {
     }
 
     /**
-     * Constructs a <code>SubjectGetResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>VideoGetResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SubjectGetResponse} obj Optional instance to populate.
-     * @return {module:model/SubjectGetResponse} The populated <code>SubjectGetResponse</code> instance.
+     * @param {module:model/VideoGetResponse} obj Optional instance to populate.
+     * @return {module:model/VideoGetResponse} The populated <code>VideoGetResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SubjectGetResponse();
+            obj = obj || new VideoGetResponse();
             GetResponse.constructFromObject(data, obj);
-            SubjectGetEmbedded.constructFromObject(data, obj);
+            VideoGetEmbedded.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('page')) {
                 obj['page'] = PaginationPage.constructFromObject(data['page']);
             }
             if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = SubjectGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
+                obj['_embedded'] = VideoGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
             }
         }
         return obj;
@@ -71,12 +71,12 @@ class SubjectGetResponse {
 /**
  * @member {module:model/PaginationPage} page
  */
-SubjectGetResponse.prototype['page'] = undefined;
+VideoGetResponse.prototype['page'] = undefined;
 
 /**
- * @member {module:model/SubjectGetEmbeddedEmbedded} _embedded
+ * @member {module:model/VideoGetEmbeddedEmbedded} _embedded
  */
-SubjectGetResponse.prototype['_embedded'] = undefined;
+VideoGetResponse.prototype['_embedded'] = undefined;
 
 
 // Implement GetResponse interface:
@@ -84,14 +84,14 @@ SubjectGetResponse.prototype['_embedded'] = undefined;
  * @member {module:model/PaginationPage} page
  */
 GetResponse.prototype['page'] = undefined;
-// Implement SubjectGetEmbedded interface:
+// Implement VideoGetEmbedded interface:
 /**
- * @member {module:model/SubjectGetEmbeddedEmbedded} _embedded
+ * @member {module:model/VideoGetEmbeddedEmbedded} _embedded
  */
-SubjectGetEmbedded.prototype['_embedded'] = undefined;
+VideoGetEmbedded.prototype['_embedded'] = undefined;
 
 
 
 
-export default SubjectGetResponse;
+export default VideoGetResponse;
 

@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import SubjectGetEmbeddedEmbedded from './SubjectGetEmbeddedEmbedded';
+import Video from './Video';
 
 /**
- * The SubjectGetEmbedded model module.
- * @module model/SubjectGetEmbedded
+ * The VideoGetEmbeddedEmbedded model module.
+ * @module model/VideoGetEmbeddedEmbedded
  * @version 1.0.10
  */
-class SubjectGetEmbedded {
+class VideoGetEmbeddedEmbedded {
     /**
-     * Constructs a new <code>SubjectGetEmbedded</code>.
-     * @alias module:model/SubjectGetEmbedded
+     * Constructs a new <code>VideoGetEmbeddedEmbedded</code>.
+     * @alias module:model/VideoGetEmbeddedEmbedded
      */
     constructor() { 
         
-        SubjectGetEmbedded.initialize(this);
+        VideoGetEmbeddedEmbedded.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class SubjectGetEmbedded {
     }
 
     /**
-     * Constructs a <code>SubjectGetEmbedded</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>VideoGetEmbeddedEmbedded</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SubjectGetEmbedded} obj Optional instance to populate.
-     * @return {module:model/SubjectGetEmbedded} The populated <code>SubjectGetEmbedded</code> instance.
+     * @param {module:model/VideoGetEmbeddedEmbedded} obj Optional instance to populate.
+     * @return {module:model/VideoGetEmbeddedEmbedded} The populated <code>VideoGetEmbeddedEmbedded</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SubjectGetEmbedded();
+            obj = obj || new VideoGetEmbeddedEmbedded();
 
-            if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = SubjectGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
+            if (data.hasOwnProperty('videos')) {
+                obj['videos'] = ApiClient.convertToType(data['videos'], [Video]);
             }
         }
         return obj;
@@ -59,14 +59,14 @@ class SubjectGetEmbedded {
 }
 
 /**
- * @member {module:model/SubjectGetEmbeddedEmbedded} _embedded
+ * @member {Array.<module:model/Video>} videos
  */
-SubjectGetEmbedded.prototype['_embedded'] = undefined;
+VideoGetEmbeddedEmbedded.prototype['videos'] = undefined;
 
 
 
 
 
 
-export default SubjectGetEmbedded;
+export default VideoGetEmbeddedEmbedded;
 

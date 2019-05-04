@@ -6,7 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
 [**deleteUserFromSubject**](SubjectApi.md#deleteUserFromSubject) | **DELETE** /subjects/{subject_id}/users/{user_id} | Elimina el usuario de la relacion con asignatura
+[**findSubjectsContainingName**](SubjectApi.md#findSubjectsContainingName) | **GET** /subjects/search/nameContaining | Busca asignaturas que contengan una string en el nombre
+[**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
+[**getVideosFromSubject**](SubjectApi.md#getVideosFromSubject) | **GET** /subjects/{id}/videos | Devuelve una lista con los videos de una asignatura
 [**putUser**](SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
 [**updateSubject**](SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 
@@ -108,6 +111,96 @@ null (empty response body)
 - **Accept**: Not defined
 
 
+## findSubjectsContainingName
+
+> SubjectGetResponse findSubjectsContainingName(opts)
+
+Busca asignaturas que contengan una string en el nombre
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let opts = {
+  'name': "name_example" // String | String a buscar en el nombre de asignaturas
+};
+apiInstance.findSubjectsContainingName(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| String a buscar en el nombre de asignaturas | [optional] 
+
+### Return type
+
+[**SubjectGetResponse**](SubjectGetResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## findSubjectsStartsWithName
+
+> SubjectGetEmbedded findSubjectsStartsWithName(opts)
+
+Busca asignaturas que empiecen por un nombre dado
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let opts = {
+  'name': "name_example" // String | Comienzo del nombre de la asignatura a buscar
+};
+apiInstance.findSubjectsStartsWithName(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Comienzo del nombre de la asignatura a buscar | [optional] 
+
+### Return type
+
+[**SubjectGetEmbedded**](SubjectGetEmbedded.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getSubjects
 
 > SubjectGetResponse getSubjects(opts)
@@ -121,7 +214,8 @@ import SwaggerUnicast from 'swagger_unicast';
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let opts = {
-  'page': 56 // Number | Numero de la página a devolver
+  'page': 56, // Number | Número de la página a devolver
+  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
 };
 apiInstance.getSubjects(opts, (error, data, response) => {
   if (error) {
@@ -137,7 +231,8 @@ apiInstance.getSubjects(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Number**| Numero de la página a devolver | [optional] 
+ **page** | **Number**| Número de la página a devolver | [optional] 
+ **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 
 ### Return type
 
@@ -151,6 +246,53 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/hal+json
+
+
+## getVideosFromSubject
+
+> VideoGetEmbedded getVideosFromSubject(id)
+
+Devuelve una lista con los videos de una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+apiInstance.getVideosFromSubject(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la asignatura | 
+
+### Return type
+
+[**VideoGetEmbedded**](VideoGetEmbedded.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## putUser

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## addSubject
 
-> Subject addSubject(subject)
+> Subject2 addSubject(subject2)
 
 Crear nueva asignatura
 
@@ -31,8 +31,8 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
-let subject = new SwaggerUnicast.Subject(); // Subject | Asignatura a añadir
-apiInstance.addSubject(subject, (error, data, response) => {
+let subject2 = new SwaggerUnicast.Subject2(); // Subject2 | Asignatura a añadir
+apiInstance.addSubject(subject2, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -46,11 +46,11 @@ apiInstance.addSubject(subject, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subject** | [**Subject**](Subject.md)| Asignatura a añadir | 
+ **subject2** | [**Subject2**](Subject2.md)| Asignatura a añadir | 
 
 ### Return type
 
-[**Subject**](Subject.md)
+[**Subject2**](Subject2.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ null (empty response body)
 
 ## findSubjectsContainingName
 
-> SubjectGetResponse findSubjectsContainingName(opts)
+> SubjectGetResponse2 findSubjectsContainingName(opts)
 
 Busca asignaturas que contengan una string en el nombre
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectGetResponse**](SubjectGetResponse.md)
+[**SubjectGetResponse2**](SubjectGetResponse2.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ No authorization required
 
 ## findSubjectsStartsWithName
 
-> SubjectGetEmbedded findSubjectsStartsWithName(opts)
+> SubjectGetEmbedded2 findSubjectsStartsWithName(opts)
 
 Busca asignaturas que empiecen por un nombre dado
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectGetEmbedded**](SubjectGetEmbedded.md)
+[**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ No authorization required
 
 ## getSubjects
 
-> SubjectGetResponse getSubjects(opts)
+> SubjectGetResponse2 getSubjects(opts)
 
 Lista de asignaturas
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectGetResponse**](SubjectGetResponse.md)
+[**SubjectGetResponse2**](SubjectGetResponse2.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ No authorization required
 
 ## getVideosFromSubject
 
-> VideoGetEmbedded getVideosFromSubject(id, opts)
+> VideoGetEmbedded2 getVideosFromSubject(id, opts)
 
 Devuelve una lista con los videos de una asignatura
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VideoGetEmbedded**](VideoGetEmbedded.md)
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
 
 ### Authorization
 
@@ -372,7 +372,7 @@ null (empty response body)
 
 ## updateSubject
 
-> Subject updateSubject(id, subject)
+> Subject2 updateSubject(id, subject2)
 
 Actualizar una asignatura
 
@@ -387,8 +387,8 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let id = 789; // Number | Id de la asignatura
-let subject = new SwaggerUnicast.Subject(); // Subject | Contenido a editar
-apiInstance.updateSubject(id, subject, (error, data, response) => {
+let subject2 = new SwaggerUnicast.Subject2(); // Subject2 | Contenido a editar
+apiInstance.updateSubject(id, subject2, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -403,11 +403,11 @@ apiInstance.updateSubject(id, subject, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la asignatura | 
- **subject** | [**Subject**](Subject.md)| Contenido a editar | 
+ **subject2** | [**Subject2**](Subject2.md)| Contenido a editar | 
 
 ### Return type
 
-[**Subject**](Subject.md)
+[**Subject2**](Subject2.md)
 
 ### Authorization
 

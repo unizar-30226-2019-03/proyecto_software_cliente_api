@@ -7,13 +7,14 @@ Method | HTTP request | Description
 [**addVideo**](VideoApi.md#addVideo) | **POST** /upload/video | Subida de un nuevo video
 [**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
 [**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
+[**getVideoUploader**](VideoApi.md#getVideoUploader) | **GET** /videos/{id}/uploader | Obtener el uploader de un video
 [**getVideos**](VideoApi.md#getVideos) | **GET** /videos | Lista de videos
 
 
 
 ## addVideo
 
-> Video addVideo(file, thumbnail, title, description, subjectId)
+> Video2 addVideo(file, thumbnail, title, description, subjectId)
 
 Subida de un nuevo video
 
@@ -56,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Video**](Video.md)
+[**Video2**](Video2.md)
 
 ### Authorization
 
@@ -70,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## findVideosContainingTitle
 
-> VideoGetResponse findVideosContainingTitle(opts)
+> VideoGetResponse2 findVideosContainingTitle(opts)
 
 Busca videos que contengan una string en el titulo
 
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VideoGetResponse**](VideoGetResponse.md)
+[**VideoGetResponse2**](VideoGetResponse2.md)
 
 ### Authorization
 
@@ -125,7 +126,7 @@ Name | Type | Description  | Notes
 
 ## findVideosStartsWithTitle
 
-> Video findVideosStartsWithTitle(opts)
+> Video2 findVideosStartsWithTitle(opts)
 
 Busca videos que empiecen por un nombre dado
 
@@ -166,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Video**](Video.md)
+[**Video2**](Video2.md)
 
 ### Authorization
 
@@ -178,9 +179,64 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getVideoUploader
+
+> User2 getVideoUploader(id, opts)
+
+Obtener el uploader de un video
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let id = 789; // Number | Id del video
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getVideoUploader(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id del video | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**User2**](User2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
+
+
 ## getVideos
 
-> VideoGetResponse getVideos(opts)
+> VideoGetResponse2 getVideos(opts)
 
 Lista de videos
 
@@ -223,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VideoGetResponse**](VideoGetResponse.md)
+[**VideoGetResponse2**](VideoGetResponse2.md)
 
 ### Authorization
 

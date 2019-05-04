@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## addUniversity
 
-> University addUniversity(name, photo)
+> University2 addUniversity(name, photo)
 
 Crear nueva universidad
 
@@ -28,7 +28,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let name = "name_example"; // String | Nombre de la nueva universidad
-let photo = "/path/to/file"; // File | Contraseña del nuevo usuario
+let photo = "/path/to/file"; // File | Foto de la universidad
 apiInstance.addUniversity(name, photo, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -44,11 +44,11 @@ apiInstance.addUniversity(name, photo, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Nombre de la nueva universidad | 
- **photo** | **File**| Contraseña del nuevo usuario | 
+ **photo** | **File**| Foto de la universidad | 
 
 ### Return type
 
-[**University**](University.md)
+[**University2**](University2.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## findUniversitiesContaining
 
-> UniversityGetEmbedded findUniversitiesContaining(opts)
+> UniversityGetEmbedded2 findUniversitiesContaining(opts)
 
 Busca universidades que contengan en el nombre la string dada
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UniversityGetEmbedded**](UniversityGetEmbedded.md)
+[**UniversityGetEmbedded2**](UniversityGetEmbedded2.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ No authorization required
 
 ## findUniversitiesStartsWith
 
-> UniversityGetEmbedded findUniversitiesStartsWith(opts)
+> UniversityGetEmbedded2 findUniversitiesStartsWith(opts)
 
 Busca universidades que empiecen por el nombre dado
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UniversityGetEmbedded**](UniversityGetEmbedded.md)
+[**UniversityGetEmbedded2**](UniversityGetEmbedded2.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ No authorization required
 
 ## getUniversities
 
-> UniversityGetResponse getUniversities(opts)
+> UniversityGetResponse2 getUniversities(opts)
 
 Lista de universidades
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UniversityGetResponse**](UniversityGetResponse.md)
+[**UniversityGetResponse2**](UniversityGetResponse2.md)
 
 ### Authorization
 

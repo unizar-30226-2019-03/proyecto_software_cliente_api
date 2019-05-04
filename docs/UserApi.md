@@ -14,13 +14,14 @@ Method | HTTP request | Description
 [**findUsersStartsWithUsername**](UserApi.md#findUsersStartsWithUsername) | **GET** /users/search/usernameStartsWith | Busca usuarios que empiecen por un username dado
 [**getSubjectsOfUser**](UserApi.md#getSubjectsOfUser) | **GET** /users/{id}/subjects | Obtener las asignaturas de un usuario
 [**getUser**](UserApi.md#getUser) | **GET** /users/{id} | Obtener un usuario
+[**getVideosOfUser**](UserApi.md#getVideosOfUser) | **GET** /users/{id}/uploadedVideos | Obtener los videos subidos por un usuario
 [**updateUser**](UserApi.md#updateUser) | **POST** /users/update | Actualizacion de un usuario en el sistema
 
 
 
 ## addUser
 
-> User addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
+> User2 addUser(username, password, name, surnames, email, description, universityId, degreeId, photo)
 
 Registro de un nuevo usuario en el sistema
 
@@ -67,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**User2**](User2.md)
 
 ### Authorization
 
@@ -81,7 +82,7 @@ No authorization required
 
 ## authUser
 
-> Token authUser(username, password)
+> Token2 authUser(username, password)
 
 Autentificacion de usuarios
 
@@ -114,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Token**](Token.md)
+[**Token2**](Token2.md)
 
 ### Authorization
 
@@ -128,7 +129,7 @@ No authorization required
 
 ## findUsersContainingName
 
-> UserGetEmbedded findUsersContainingName(opts)
+> UserGetEmbedded2 findUsersContainingName(opts)
 
 Busca usuarios que contengan una string en el nombre
 
@@ -169,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## findUsersContainingSurname
 
-> UserGetEmbedded findUsersContainingSurname(opts)
+> UserGetEmbedded2 findUsersContainingSurname(opts)
 
 Busca usuarios que contengan una string en los apellidos
 
@@ -224,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -238,7 +239,7 @@ Name | Type | Description  | Notes
 
 ## findUsersContainingUsername
 
-> UserGetEmbedded findUsersContainingUsername(opts)
+> UserGetEmbedded2 findUsersContainingUsername(opts)
 
 Busca usuarios que contengan una string en el username
 
@@ -279,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -293,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## findUsersStartsWithName
 
-> UserGetEmbedded findUsersStartsWithName(opts)
+> UserGetEmbedded2 findUsersStartsWithName(opts)
 
 Busca usuarios que empiecen por un nombre dado
 
@@ -334,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -348,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## findUsersStartsWithSurnames
 
-> UserGetEmbedded findUsersStartsWithSurnames(opts)
+> UserGetEmbedded2 findUsersStartsWithSurnames(opts)
 
 Busca usuarios que empiecen por unos apellidos dados
 
@@ -389,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -403,7 +404,7 @@ Name | Type | Description  | Notes
 
 ## findUsersStartsWithUsername
 
-> UserGetEmbedded findUsersStartsWithUsername(opts)
+> UserGetEmbedded2 findUsersStartsWithUsername(opts)
 
 Busca usuarios que empiecen por un username dado
 
@@ -444,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetEmbedded**](UserGetEmbedded.md)
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
 
 ### Authorization
 
@@ -458,7 +459,7 @@ Name | Type | Description  | Notes
 
 ## getSubjectsOfUser
 
-> SubjectGetEmbedded getSubjectsOfUser(id, opts)
+> SubjectGetEmbedded2 getSubjectsOfUser(id, opts)
 
 Obtener las asignaturas de un usuario
 
@@ -499,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubjectGetEmbedded**](SubjectGetEmbedded.md)
+[**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
 
 ### Authorization
 
@@ -513,7 +514,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> User getUser(id, opts)
+> User2 getUser(id, opts)
 
 Obtener un usuario
 
@@ -554,7 +555,62 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**User2**](User2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
+
+
+## getVideosOfUser
+
+> VideoGetEmbedded2 getVideosOfUser(id, opts)
+
+Obtener los videos subidos por un usuario
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let id = 789; // Number | Id del usuario
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getVideosOfUser(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
 
 ### Authorization
 
@@ -568,7 +624,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> User updateUser(opts)
+> User2 updateUser(opts)
 
 Actualizacion de un usuario en el sistema
 
@@ -621,7 +677,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**User2**](User2.md)
 
 ### Authorization
 

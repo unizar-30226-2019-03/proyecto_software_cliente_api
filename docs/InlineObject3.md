@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Nombre de la nueva universidad | 
-**photo** | **File** | Contraseña del nuevo usuario | 
+**photo** | **File** | Foto de la universidad | 
 
 

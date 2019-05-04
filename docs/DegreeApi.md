@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addDegree
 
-> Degree addDegree(degree)
+> Degree2 addDegree(degree2)
 
 Crear nueva carrera
 
@@ -28,8 +28,8 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.DegreeApi();
-let degree = new SwaggerUnicast.Degree(); // Degree | Carrera a añadir
-apiInstance.addDegree(degree, (error, data, response) => {
+let degree2 = new SwaggerUnicast.Degree2(); // Degree2 | Carrera a añadir
+apiInstance.addDegree(degree2, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -43,11 +43,11 @@ apiInstance.addDegree(degree, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **degree** | [**Degree**](Degree.md)| Carrera a añadir | 
+ **degree2** | [**Degree2**](Degree2.md)| Carrera a añadir | 
 
 ### Return type
 
-[**Degree**](Degree.md)
+[**Degree2**](Degree2.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ## findDegreesContainingName
 
-> DegreeGetResponse findDegreesContainingName(opts)
+> DegreeGetResponse2 findDegreesContainingName(opts)
 
 Busca carreras que contengan una string en el nombre
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DegreeGetResponse**](DegreeGetResponse.md)
+[**DegreeGetResponse2**](DegreeGetResponse2.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 
 ## findDegreesStartsWith
 
-> DegreeGetEmbedded findDegreesStartsWith(opts)
+> DegreeGetEmbedded2 findDegreesStartsWith(opts)
 
 Busca carreras que empiecen por el nombre dado
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DegreeGetEmbedded**](DegreeGetEmbedded.md)
+[**DegreeGetEmbedded2**](DegreeGetEmbedded2.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 
 ## getDegrees
 
-> DegreeGetResponse getDegrees(opts)
+> DegreeGetResponse2 getDegrees(opts)
 
 Lista de carreras
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DegreeGetResponse**](DegreeGetResponse.md)
+[**DegreeGetResponse2**](DegreeGetResponse2.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ No authorization required
 
 ## updateDegree
 
-> Degree updateDegree(id, degree)
+> Degree2 updateDegree(id, degree2)
 
 Actualizar una carrera
 
@@ -231,8 +231,8 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.DegreeApi();
 let id = 789; // Number | Id de la carrera
-let degree = new SwaggerUnicast.Degree(); // Degree | Contenido a editar
-apiInstance.updateDegree(id, degree, (error, data, response) => {
+let degree2 = new SwaggerUnicast.Degree2(); // Degree2 | Contenido a editar
+apiInstance.updateDegree(id, degree2, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -247,11 +247,11 @@ apiInstance.updateDegree(id, degree, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la carrera | 
- **degree** | [**Degree**](Degree.md)| Contenido a editar | 
+ **degree2** | [**Degree2**](Degree2.md)| Contenido a editar | 
 
 ### Return type
 
-[**Degree**](Degree.md)
+[**Degree2**](Degree2.md)
 
 ### Authorization
 

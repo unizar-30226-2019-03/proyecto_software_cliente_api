@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **timestamp** | **Date** |  | [optional] 
 **url** | **String** |  | [optional] 
 **thumbnailUrl** | **String** |  | [optional] 
+**score** | **Number** |  | [optional] 
 
 

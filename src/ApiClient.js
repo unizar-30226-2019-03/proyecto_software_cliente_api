@@ -205,6 +205,10 @@ class ApiClient {
             return true;
         }
 
+        if (Object.keys(param).length == 3 && param.hasOwnProperty('uri') && param.hasOwnProperty('name') && param.hasOwnProperty('type')) {
+            return true;
+        }
+
         return false;
     }
 

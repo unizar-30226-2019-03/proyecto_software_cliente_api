@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **url** | **String** |  | [optional] 
 **thumbnailUrl** | **String** |  | [optional] 
 **score** | **Number** |  | [optional] 
+**seconds** | **Number** |  | [optional] 
 
 

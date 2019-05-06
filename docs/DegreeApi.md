@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**findDegreesContainingName**](DegreeApi.md#findDegreesContainingName) | **GET** /degrees/search/nameContaining | Busca carreras que contengan una string en el nombre
 [**findDegreesStartsWith**](DegreeApi.md#findDegreesStartsWith) | **GET** /degrees/search/nameStartsWith | Busca carreras que empiecen por el nombre dado
 [**getDegrees**](DegreeApi.md#getDegrees) | **GET** /degrees | Lista de carreras
+[**getUniversitiesFromDegree**](DegreeApi.md#getUniversitiesFromDegree) | **GET** /degrees/{id}/universities | Devuelve una lista con las universidades de una carrera
+[**putDegreeUniversity**](DegreeApi.md#putDegreeUniversity) | **PUT** /degrees/{id}/universities | Relacionar una universidad con una asignatura
 [**updateDegree**](DegreeApi.md#updateDegree) | **PATCH** /degrees/{id} | Actualizar una carrera
 
 
@@ -212,6 +214,110 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/hal+json
+
+
+## getUniversitiesFromDegree
+
+> UniversityGetEmbedded2 getUniversitiesFromDegree(id, opts)
+
+Devuelve una lista con las universidades de una carrera
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.DegreeApi();
+let id = 789; // Number | Id de la carrera
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getUniversitiesFromDegree(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la carrera | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**UniversityGetEmbedded2**](UniversityGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## putDegreeUniversity
+
+> putDegreeUniversity(id, body)
+
+Relacionar una universidad con una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.DegreeApi();
+let id = 789; // Number | Id de la carrera
+let body = 789; // Number | Id de la universidad a asociar con la carrera
+apiInstance.putDegreeUniversity(id, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la carrera | 
+ **body** | **Number**| Id de la universidad a asociar con la carrera | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: text/uri-list
+- **Accept**: Not defined
 
 
 ## updateDegree

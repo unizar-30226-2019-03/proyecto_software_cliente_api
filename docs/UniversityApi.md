@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addUniversity**](UniversityApi.md#addUniversity) | **POST** /universities/add | Crear nueva universidad
 [**findUniversitiesContaining**](UniversityApi.md#findUniversitiesContaining) | **GET** /universities/search/nameContaining | Busca universidades que contengan en el nombre la string dada
 [**findUniversitiesStartsWith**](UniversityApi.md#findUniversitiesStartsWith) | **GET** /universities/search/nameStartsWith | Busca universidades que empiecen por el nombre dado
+[**getSubjecstFromUniversity**](UniversityApi.md#getSubjecstFromUniversity) | **GET** /universities/{id}/subjects | Devuelve una lista con las asignaturas de una universidad
 [**getUniversities**](UniversityApi.md#getUniversities) | **GET** /universities | Lista de universidades
 
 
@@ -155,6 +156,61 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getSubjecstFromUniversity
+
+> SubjectGetEmbedded2 getSubjecstFromUniversity(id, opts)
+
+Devuelve una lista con las asignaturas de una universidad
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UniversityApi();
+let id = 789; // Number | Id de la universidad
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getSubjecstFromUniversity(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la universidad | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

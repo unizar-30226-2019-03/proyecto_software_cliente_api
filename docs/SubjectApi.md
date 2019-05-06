@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**findSubjectsContainingName**](SubjectApi.md#findSubjectsContainingName) | **GET** /subjects/search/nameContaining | Busca asignaturas que contengan una string en el nombre
 [**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
-[**getVideosFromSubject**](SubjectApi.md#getVideosFromSubject) | **GET** /subjects/{id}/videos | Devuelve una lista con los videos de una asignatura
+[**putUniversity**](SubjectApi.md#putUniversity) | **PUT** /subjects/{id}/university | Relacionar una universidad con una asignatura
 [**putUser**](SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
 [**updateSubject**](SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 
@@ -127,7 +127,8 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'name': "name_example" // String | String a buscar en el nombre de asignaturas
+  'name': "name_example", // String | String a buscar en el nombre de asignaturas
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
 };
 apiInstance.findSubjectsContainingName(opts, (error, data, response) => {
   if (error) {
@@ -147,6 +148,7 @@ Name | Type | Description  | Notes
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| String a buscar en el nombre de asignaturas | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 
@@ -178,7 +180,8 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'name': "name_example" // String | Comienzo del nombre de la asignatura a buscar
+  'name': "name_example", // String | Comienzo del nombre de la asignatura a buscar
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
 };
 apiInstance.findSubjectsStartsWithName(opts, (error, data, response) => {
   if (error) {
@@ -198,6 +201,7 @@ Name | Type | Description  | Notes
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **name** | **String**| Comienzo del nombre de la asignatura a buscar | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 
@@ -230,7 +234,8 @@ let opts = {
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
 };
 apiInstance.getSubjects(opts, (error, data, response) => {
   if (error) {
@@ -251,6 +256,7 @@ Name | Type | Description  | Notes
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 
@@ -266,11 +272,11 @@ No authorization required
 - **Accept**: application/hal+json
 
 
-## getVideosFromSubject
+## putUniversity
 
-> VideoGetEmbedded2 getVideosFromSubject(id, opts)
+> putUniversity(id, body)
 
-Devuelve una lista con los videos de una asignatura
+Relacionar una universidad con una asignatura
 
 ### Example
 
@@ -283,16 +289,12 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let id = 789; // Number | Id de la asignatura
-let opts = {
-  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
-  'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
-};
-apiInstance.getVideosFromSubject(id, opts, (error, data, response) => {
+let body = 789; // Number | Id de la universidad a asociar con la asignatura
+apiInstance.putUniversity(id, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -303,13 +305,11 @@ apiInstance.getVideosFromSubject(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la asignatura | 
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
- **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
- **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **body** | **Number**| Id de la universidad a asociar con la asignatura | 
 
 ### Return type
 
-[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
+null (empty response body)
 
 ### Authorization
 
@@ -317,8 +317,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+- **Content-Type**: text/uri-list
+- **Accept**: Not defined
 
 
 ## putUser
@@ -338,7 +338,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let id = 789; // Number | Id de la asignatura
-let body = 789; // Number | Link del usuario a asociar con la asignatura
+let body = 789; // Number | Id del usuario a asociar con la asignatura
 apiInstance.putUser(id, body, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -354,7 +354,7 @@ apiInstance.putUser(id, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la asignatura | 
- **body** | **Number**| Link del usuario a asociar con la asignatura | 
+ **body** | **Number**| Id del usuario a asociar con la asignatura | 
 
 ### Return type
 

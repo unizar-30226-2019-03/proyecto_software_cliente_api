@@ -4,14 +4,62 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**displaysDeleteVideoIdDelete**](DisplayApi.md#displaysDeleteVideoIdDelete) | **DELETE** /displays/delete/{video_id} | Elimina la visualizacion dada
 [**getDisplaysByUser**](DisplayApi.md#getDisplaysByUser) | **GET** /displays/search/user | Devuelve una lista de visualizaciones que pertenezcan al usuario dado
 [**updateDisplay**](DisplayApi.md#updateDisplay) | **POST** /displays/update | Actualiza una visualizacion
 
 
 
+## displaysDeleteVideoIdDelete
+
+> displaysDeleteVideoIdDelete(videoId)
+
+Elimina la visualizacion dada
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.DisplayApi();
+let videoId = 789; // Number | Id del video de la visualizacion a borrar
+apiInstance.displaysDeleteVideoIdDelete(videoId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **videoId** | **Number**| Id del video de la visualizacion a borrar | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
 ## getDisplaysByUser
 
-> DisplayGetEmbedded2 getDisplaysByUser(id, opts)
+> DisplayGetResponse2 getDisplaysByUser(id, opts)
 
 Devuelve una lista de visualizaciones que pertenezcan al usuario dado
 
@@ -30,6 +78,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
+  'page': 56, // Number | Número de la página a devolver
   'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
   'projection': "'displayWithVideo'" // String | Incluir si se quiere obtener tambien los videos en la respuesta
 };
@@ -51,12 +100,13 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
  **projection** | **String**| Incluir si se quiere obtener tambien los videos en la respuesta | [optional] [default to &#39;displayWithVideo&#39;]
 
 ### Return type
 
-[**DisplayGetEmbedded2**](DisplayGetEmbedded2.md)
+[**DisplayGetResponse2**](DisplayGetResponse2.md)
 
 ### Authorization
 

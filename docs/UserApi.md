@@ -12,7 +12,9 @@ Method | HTTP request | Description
 [**findUsersStartsWithName**](UserApi.md#findUsersStartsWithName) | **GET** /users/search/nameStartsWith | Busca usuarios que empiecen por un nombre dado
 [**findUsersStartsWithSurnames**](UserApi.md#findUsersStartsWithSurnames) | **GET** /users/search/surnamesStartsWith | Busca usuarios que empiecen por unos apellidos dados
 [**findUsersStartsWithUsername**](UserApi.md#findUsersStartsWithUsername) | **GET** /users/search/usernameStartsWith | Busca usuarios que empiecen por un username dado
+[**getDegreeOfUser**](UserApi.md#getDegreeOfUser) | **GET** /users/{id}/degree | Obtener la carrera de un usuario
 [**getSubjectsOfUser**](UserApi.md#getSubjectsOfUser) | **GET** /users/{id}/subjects | Obtener las asignaturas de un usuario
+[**getUniversityOfUser**](UserApi.md#getUniversityOfUser) | **GET** /users/{id}/university | Obtener la universidad de un usuario
 [**getUser**](UserApi.md#getUser) | **GET** /users/{id} | Obtener un usuario
 [**updateUser**](UserApi.md#updateUser) | **POST** /users/update | Actualizacion de un usuario en el sistema
 
@@ -456,6 +458,61 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getDegreeOfUser
+
+> Degree2 getDegreeOfUser(id, opts)
+
+Obtener la carrera de un usuario
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let id = 789; // Number | Id del usuario
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getDegreeOfUser(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**Degree2**](Degree2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
+
+
 ## getSubjectsOfUser
 
 > SubjectGetEmbedded2 getSubjectsOfUser(id, opts)
@@ -500,6 +557,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
+
+
+## getUniversityOfUser
+
+> University2 getUniversityOfUser(id, opts)
+
+Obtener la universidad de un usuario
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let id = 789; // Number | Id del usuario
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getUniversityOfUser(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**University2**](University2.md)
 
 ### Authorization
 

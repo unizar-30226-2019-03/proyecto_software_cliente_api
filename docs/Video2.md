@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **thumbnailUrl** | **String** |  | [optional] 
 **score** | **Number** |  | [optional] 
 **seconds** | **Number** |  | [optional] 
+**university** | [**University2**](University2.md) |  | [optional] 
+**subject** | [**Subject2**](Subject2.md) |  | [optional] 
 
 

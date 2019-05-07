@@ -88,7 +88,8 @@ let id = 789; // Number | Id del comentario
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
+  'expires': "'0'", // String | 
+  'projection': "'commentWithUser'" // String | Incluir si se quiere obtener tambien el usuario que ha hecho el comentario
 };
 apiInstance.getCommentReplies(id, opts, (error, data, response) => {
   if (error) {
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien el usuario que ha hecho el comentario | [optional] [default to &#39;commentWithUser&#39;]
 
 ### Return type
 
@@ -125,7 +127,7 @@ Name | Type | Description  | Notes
 
 ## getCommentsByVideo
 
-> CommentGetEmbedded2 getCommentsByVideo(id, opts)
+> CommentGetResponse2 getCommentsByVideo(id, opts)
 
 Devuelve una lista de comentarios que pertenezcan al video dado
 
@@ -144,7 +146,9 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'page': 56, // Number | Número de la página a devolver
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'commentWithUser'" // String | Incluir si se quiere obtener tambien el usuario que ha hecho el comentario
 };
 apiInstance.getCommentsByVideo(id, opts, (error, data, response) => {
   if (error) {
@@ -164,11 +168,13 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien el usuario que ha hecho el comentario | [optional] [default to &#39;commentWithUser&#39;]
 
 ### Return type
 
-[**CommentGetEmbedded2**](CommentGetEmbedded2.md)
+[**CommentGetResponse2**](CommentGetResponse2.md)
 
 ### Authorization
 
@@ -200,7 +206,8 @@ let id = 789; // Number | Id del comentario
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
+  'expires': "'0'", // String | 
+  'projection': "'commentWithUser'" // String | Incluir si se quiere obtener tambien el usuario que ha hecho el comentario
 };
 apiInstance.getRepliedToComment(id, opts, (error, data, response) => {
   if (error) {
@@ -220,6 +227,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien el usuario que ha hecho el comentario | [optional] [default to &#39;commentWithUser&#39;]
 
 ### Return type
 

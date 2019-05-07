@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
 [**deleteUserFromSubject**](SubjectApi.md#deleteUserFromSubject) | **DELETE** /subjects/{subject_id}/users/{user_id} | Elimina el usuario de la relacion con asignatura
+[**findSubjectsByName**](SubjectApi.md#findSubjectsByName) | **GET** /subjects/search/name | Busca una asignatura con un nmbre dado
 [**findSubjectsContainingName**](SubjectApi.md#findSubjectsContainingName) | **GET** /subjects/search/nameContaining | Busca asignaturas que contengan una string en el nombre
 [**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
@@ -111,6 +112,57 @@ null (empty response body)
 - **Accept**: Not defined
 
 
+## findSubjectsByName
+
+> Subject2 findSubjectsByName(opts)
+
+Busca una asignatura con un nmbre dado
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'name': "name_example" // String | Nombre a buscar
+};
+apiInstance.findSubjectsByName(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **name** | **String**| Nombre a buscar | [optional] 
+
+### Return type
+
+[**Subject2**](Subject2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## findSubjectsContainingName
 
 > SubjectGetResponse2 findSubjectsContainingName(opts)
@@ -127,8 +179,8 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'name': "name_example", // String | String a buscar en el nombre de asignaturas
-  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'projection': "'subjectWithUniversity'", // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'name': "name_example" // String | String a buscar en el nombre de asignaturas
 };
 apiInstance.findSubjectsContainingName(opts, (error, data, response) => {
   if (error) {
@@ -147,8 +199,8 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **name** | **String**| String a buscar en el nombre de asignaturas | [optional] 
  **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+ **name** | **String**| String a buscar en el nombre de asignaturas | [optional] 
 
 ### Return type
 
@@ -180,8 +232,8 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'name': "name_example", // String | Comienzo del nombre de la asignatura a buscar
-  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'projection': "'subjectWithUniversity'", // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'name': "name_example" // String | Comienzo del nombre de la asignatura a buscar
 };
 apiInstance.findSubjectsStartsWithName(opts, (error, data, response) => {
   if (error) {
@@ -200,8 +252,8 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **name** | **String**| Comienzo del nombre de la asignatura a buscar | [optional] 
  **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+ **name** | **String**| Comienzo del nombre de la asignatura a buscar | [optional] 
 
 ### Return type
 

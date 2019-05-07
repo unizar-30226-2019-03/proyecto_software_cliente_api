@@ -5,11 +5,12 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDegree**](DegreeApi.md#addDegree) | **POST** /degrees | Crear nueva carrera
+[**findDegreesByName**](DegreeApi.md#findDegreesByName) | **GET** /degrees/search/name | Busca una carrera con un nmbre dado
 [**findDegreesContainingName**](DegreeApi.md#findDegreesContainingName) | **GET** /degrees/search/nameContaining | Busca carreras que contengan una string en el nombre
 [**findDegreesStartsWith**](DegreeApi.md#findDegreesStartsWith) | **GET** /degrees/search/nameStartsWith | Busca carreras que empiecen por el nombre dado
 [**getDegrees**](DegreeApi.md#getDegrees) | **GET** /degrees | Lista de carreras
 [**getUniversitiesFromDegree**](DegreeApi.md#getUniversitiesFromDegree) | **GET** /degrees/{id}/universities | Devuelve una lista con las universidades de una carrera
-[**putDegreeUniversity**](DegreeApi.md#putDegreeUniversity) | **PUT** /degrees/{id}/universities | Relacionar una universidad con una asignatura
+[**putDegreeUniversity**](DegreeApi.md#putDegreeUniversity) | **PUT** /degrees/{id}/universities | Relacionar una carrera con una universidad
 [**updateDegree**](DegreeApi.md#updateDegree) | **PATCH** /degrees/{id} | Actualizar una carrera
 
 
@@ -59,6 +60,57 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/hal+json
+
+
+## findDegreesByName
+
+> Degree2 findDegreesByName(opts)
+
+Busca una carrera con un nmbre dado
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+
+let apiInstance = new SwaggerUnicast.DegreeApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'name': "name_example" // String | Nombre a buscar
+};
+apiInstance.findDegreesByName(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **name** | **String**| Nombre a buscar | [optional] 
+
+### Return type
+
+[**Degree2**](Degree2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## findDegreesContainingName
@@ -275,7 +327,7 @@ Name | Type | Description  | Notes
 
 > putDegreeUniversity(id, body)
 
-Relacionar una universidad con una asignatura
+Relacionar una carrera con una universidad
 
 ### Example
 

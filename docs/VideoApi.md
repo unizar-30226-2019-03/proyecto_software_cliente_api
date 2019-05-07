@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**getVideos**](VideoApi.md#getVideos) | **GET** /videos | Lista de videos
 [**getVideosFromSubject**](VideoApi.md#getVideosFromSubject) | **GET** /videos/search/subjectVideos | Lista de videos de una asignatura
 [**getVideosFromUploader**](VideoApi.md#getVideosFromUploader) | **GET** /videos/search/uploaderVideos | Lista de videos que ha subido un usuario
+[**getVideosOfUserSubjects**](VideoApi.md#getVideosOfUserSubjects) | **GET** /videos/search/userSubjects | Lista de videos de una asignatura
 
 
 
@@ -93,6 +94,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'", // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
   'title': "title_example" // String | String a buscar en el titulo de videos
 };
 apiInstance.findVideosContainingTitle(opts, (error, data, response) => {
@@ -112,6 +114,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
  **title** | **String**| String a buscar en el titulo de videos | [optional] 
 
 ### Return type
@@ -148,6 +151,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'", // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
   'title': "title_example" // String | Comienzo del nombre de los videos a buscar
 };
 apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
@@ -167,6 +171,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
  **title** | **String**| Comienzo del nombre de los videos a buscar | [optional] 
 
 ### Return type
@@ -203,7 +208,8 @@ let id = 789; // Number | Id del video
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
+  'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideo(id, opts, (error, data, response) => {
   if (error) {
@@ -223,6 +229,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 
@@ -259,7 +266,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideoSubject(id, opts, (error, data, response) => {
   if (error) {
@@ -279,7 +286,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 
@@ -315,7 +322,8 @@ let id = 789; // Number | Id del video
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
+  'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideoUploader(id, opts, (error, data, response) => {
   if (error) {
@@ -335,6 +343,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 
@@ -371,7 +380,8 @@ let opts = {
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideos(opts, (error, data, response) => {
   if (error) {
@@ -392,6 +402,7 @@ Name | Type | Description  | Notes
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 
@@ -429,7 +440,8 @@ let opts = {
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideosFromSubject(subjectId, opts, (error, data, response) => {
   if (error) {
@@ -451,6 +463,7 @@ Name | Type | Description  | Notes
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 
@@ -488,7 +501,8 @@ let opts = {
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
   'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
 apiInstance.getVideosFromUploader(uploaderId, opts, (error, data, response) => {
   if (error) {
@@ -510,6 +524,68 @@ Name | Type | Description  | Notes
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
  **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
+
+### Return type
+
+[**VideoGetResponse2**](VideoGetResponse2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getVideosOfUserSubjects
+
+> VideoGetResponse2 getVideosOfUserSubjects(userId, opts)
+
+Lista de videos de una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let userId = 789; // Number | Id del usuario
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'page': 56, // Number | Número de la página a devolver
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
+};
+apiInstance.getVideosOfUserSubjects(userId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
+ **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
 
 ### Return type
 

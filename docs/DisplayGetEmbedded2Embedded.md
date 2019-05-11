@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displays** | [**[DisplayWithVideoEmbedded2]**](DisplayWithVideoEmbedded2.md) |  | [optional] 
+**displays** | [**[Display2]**](Display2.md) |  | [optional] 
 
 

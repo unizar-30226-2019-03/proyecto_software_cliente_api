@@ -5,6 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addVideo**](VideoApi.md#addVideo) | **POST** /upload/video | Subida de un nuevo video
+[**deleteVideo**](VideoApi.md#deleteVideo) | **DELETE** /delete/video | Eliminacion de un video (si se es el autor del mismo)
 [**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
 [**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
 [**getVideo**](VideoApi.md#getVideo) | **GET** /videos/{id} | Obtener el video con un id dado
@@ -13,7 +14,7 @@ Method | HTTP request | Description
 [**getVideos**](VideoApi.md#getVideos) | **GET** /videos | Lista de videos
 [**getVideosFromSubject**](VideoApi.md#getVideosFromSubject) | **GET** /videos/search/subjectVideos | Lista de videos de una asignatura
 [**getVideosFromUploader**](VideoApi.md#getVideosFromUploader) | **GET** /videos/search/uploaderVideos | Lista de videos que ha subido un usuario
-[**getVideosOfUserSubjects**](VideoApi.md#getVideosOfUserSubjects) | **GET** /videos/search/userSubjects | Lista de videos de una asignatura
+[**getVideosOfUserSubjects**](VideoApi.md#getVideosOfUserSubjects) | **GET** /videos/search/userSubjects | Lista de videos de las asignaturas de un usuario
 
 
 
@@ -72,6 +73,53 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
+
+
+## deleteVideo
+
+> deleteVideo(id)
+
+Eliminacion de un video (si se es el autor del mismo)
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let id = 789; // Number | 
+apiInstance.deleteVideo(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
 
 
 ## findVideosContainingTitle
@@ -266,7 +314,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
 };
 apiInstance.getVideoSubject(id, opts, (error, data, response) => {
   if (error) {
@@ -286,7 +334,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 
@@ -544,7 +592,7 @@ Name | Type | Description  | Notes
 
 > VideoGetResponse2 getVideosOfUserSubjects(userId, opts)
 
-Lista de videos de una asignatura
+Lista de videos de las asignaturas de un usuario
 
 ### Example
 

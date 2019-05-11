@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **text** | **String** |  | 
 **timestamp** | **Date** |  | 
 **secondsFromBeginning** | **Number** |  | 
+**user** | [**User**](User.md) |  | [optional] 
 
 

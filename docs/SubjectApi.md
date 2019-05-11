@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
 [**deleteUserFromSubject**](SubjectApi.md#deleteUserFromSubject) | **DELETE** /subjects/{subject_id}/users/{user_id} | Elimina el usuario de la relacion con asignatura
-[**findSubjectsByName**](SubjectApi.md#findSubjectsByName) | **GET** /subjects/search/name | Busca una asignatura con un nmbre dado
+[**existsUserInSubject**](SubjectApi.md#existsUserInSubject) | **GET** /subjects/search/userIn | Devuelve si un usuario esta en una asignatura
+[**findSubjectsByName**](SubjectApi.md#findSubjectsByName) | **GET** /subjects/search/name | Busca una asignatura con un nombre dado
 [**findSubjectsContainingName**](SubjectApi.md#findSubjectsContainingName) | **GET** /subjects/search/nameContaining | Busca asignaturas que contengan una string en el nombre
 [**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
+[**getSubjectRanking**](SubjectApi.md#getSubjectRanking) | **GET** /subjects/search/ranking | Devuelve el ranking de asignaturas
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
 [**putUniversity**](SubjectApi.md#putUniversity) | **PUT** /subjects/{id}/university | Relacionar una universidad con una asignatura
 [**putUser**](SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
@@ -112,11 +114,68 @@ null (empty response body)
 - **Accept**: Not defined
 
 
+## existsUserInSubject
+
+> Boolean existsUserInSubject(userId, subjectId, opts)
+
+Devuelve si un usuario esta en una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let userId = 789; // Number | Id el usuario a buscar
+let subjectId = 789; // Number | Id de la asignatura en la que buscar
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.existsUserInSubject(userId, subjectId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id el usuario a buscar | 
+ **subjectId** | **Number**| Id de la asignatura en la que buscar | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## findSubjectsByName
 
 > Subject2 findSubjectsByName(opts)
 
-Busca una asignatura con un nmbre dado
+Busca una asignatura con un nombre dado
 
 ### Example
 
@@ -128,6 +187,7 @@ let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
+  'projection': "'subjectWithUniversity'", // String | Incluir si se quiere obtener tambien la universidad en la respuesta
   'name': "name_example" // String | Nombre a buscar
 };
 apiInstance.findSubjectsByName(opts, (error, data, response) => {
@@ -147,6 +207,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
  **name** | **String**| Nombre a buscar | [optional] 
 
 ### Return type
@@ -262,6 +323,63 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getSubjectRanking
+
+> SubjectGetResponse2 getSubjectRanking(opts)
+
+Devuelve el ranking de asignaturas
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'projection': "'subjectWithUniversity'", // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+  'page': 56 // Number | Número de la página a devolver
+};
+apiInstance.getSubjectRanking(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
+
+### Return type
+
+[**SubjectGetResponse2**](SubjectGetResponse2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -424,7 +542,7 @@ null (empty response body)
 
 ## updateSubject
 
-> Subject2 updateSubject(id, subject2)
+> Subject2 updateSubject(id, subject2, opts)
 
 Actualizar una asignatura
 
@@ -440,7 +558,10 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new SwaggerUnicast.SubjectApi();
 let id = 789; // Number | Id de la asignatura
 let subject2 = new SwaggerUnicast.Subject2(); // Subject2 | Contenido a editar
-apiInstance.updateSubject(id, subject2, (error, data, response) => {
+let opts = {
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+};
+apiInstance.updateSubject(id, subject2, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -456,6 +577,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Id de la asignatura | 
  **subject2** | [**Subject2**](Subject2.md)| Contenido a editar | 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 

@@ -533,7 +533,8 @@ let id = 789; // Number | Id del usuario
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'" // String | 
+  'expires': "'0'", // String | 
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
 };
 apiInstance.getSubjectsOfUser(id, opts, (error, data, response) => {
   if (error) {
@@ -553,6 +554,7 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
 
 ### Return type
 

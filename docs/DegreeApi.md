@@ -5,7 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDegree**](DegreeApi.md#addDegree) | **POST** /degrees | Crear nueva carrera
-[**findDegreesByName**](DegreeApi.md#findDegreesByName) | **GET** /degrees/search/name | Busca una carrera con un nmbre dado
+[**findDegreesByName**](DegreeApi.md#findDegreesByName) | **GET** /degrees/search/name | Busca una carrera con un nombre dado
 [**findDegreesContainingName**](DegreeApi.md#findDegreesContainingName) | **GET** /degrees/search/nameContaining | Busca carreras que contengan una string en el nombre
 [**findDegreesStartsWith**](DegreeApi.md#findDegreesStartsWith) | **GET** /degrees/search/nameStartsWith | Busca carreras que empiecen por el nombre dado
 [**getDegrees**](DegreeApi.md#getDegrees) | **GET** /degrees | Lista de carreras
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 > Degree2 findDegreesByName(opts)
 
-Busca una carrera con un nmbre dado
+Busca una carrera con un nombre dado
 
 ### Example
 

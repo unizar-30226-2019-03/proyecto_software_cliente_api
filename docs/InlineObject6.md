@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**receiverId** | **Number** | id del usuario al que enviar el mensaje | 
-**text** | **String** | Cuerpo del mensaje a enviar | 
+**secsFromBeg** | **Number** | Segundos que se han visualizados del video | 
+**videoId** | **Number** | Id del video que se esta visualizando | 
 
 

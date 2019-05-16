@@ -4,8 +4,8 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addVideo**](VideoApi.md#addVideo) | **POST** /upload/video | Subida de un nuevo video
-[**deleteVideo**](VideoApi.md#deleteVideo) | **DELETE** /delete/video | Eliminacion de un video (si se es el autor del mismo)
+[**addVideo**](VideoApi.md#addVideo) | **POST** /videos/upload | Subida de un nuevo video
+[**deleteVideo**](VideoApi.md#deleteVideo) | **DELETE** /videos/delete | Eliminacion de un video (si se es el autor del mismo)
 [**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
 [**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
 [**getVideo**](VideoApi.md#getVideo) | **GET** /videos/{id} | Obtener el video con un id dado
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ## getVideosFromUploader
 
-> VideoGetResponse2 getVideosFromUploader(uploaderId, opts)
+> VideoGetResponse2 getVideosFromUploader(opts)
 
 Lista de videos que ha subido un usuario
 
@@ -543,7 +543,6 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
-let uploaderId = 789; // Number | Id del uploader
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
@@ -552,7 +551,7 @@ let opts = {
   'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
   'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
-apiInstance.getVideosFromUploader(uploaderId, opts, (error, data, response) => {
+apiInstance.getVideosFromUploader(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -566,7 +565,6 @@ apiInstance.getVideosFromUploader(uploaderId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uploaderId** | **Number**| Id del uploader | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
@@ -590,7 +588,7 @@ Name | Type | Description  | Notes
 
 ## getVideosOfUserSubjects
 
-> VideoGetResponse2 getVideosOfUserSubjects(userId, opts)
+> VideoGetResponse2 getVideosOfUserSubjects(opts)
 
 Lista de videos de las asignaturas de un usuario
 
@@ -604,7 +602,6 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VideoApi();
-let userId = 789; // Number | Id del usuario
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
@@ -613,7 +610,7 @@ let opts = {
   'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
   'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
 };
-apiInstance.getVideosOfUserSubjects(userId, opts, (error, data, response) => {
+apiInstance.getVideosOfUserSubjects(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -627,7 +624,6 @@ apiInstance.getVideosOfUserSubjects(userId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| Id del usuario | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]

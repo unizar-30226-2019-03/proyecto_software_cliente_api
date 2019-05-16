@@ -6,6 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUser**](UserApi.md#addUser) | **POST** /public/register | Registro de un nuevo usuario en el sistema
 [**authUser**](UserApi.md#authUser) | **POST** /public/authenticate | Autentificacion de usuarios
+[**deleteUser**](UserApi.md#deleteUser) | **DELETE** /users/delete | Eliminacion de un usuario (junto a todo su contenido)
+[**disableUser**](UserApi.md#disableUser) | **PATCH** /users/setDisabled | Deshabilita (en vez de borrarlo de la base de datos) al usuario actual
+[**eraseProfessor**](UserApi.md#eraseProfessor) | **PATCH** /users/eraseProfessor | Elimina un profesor
 [**findUsersContainingName**](UserApi.md#findUsersContainingName) | **GET** /users/search/nameContaining | Busca usuarios que contengan una string en el nombre
 [**findUsersContainingSurname**](UserApi.md#findUsersContainingSurname) | **GET** /users/search/surnamesContaining | Busca usuarios que contengan una string en los apellidos
 [**findUsersContainingUsername**](UserApi.md#findUsersContainingUsername) | **GET** /users/search/usernameContaining | Busca usuarios que contengan una string en el username
@@ -13,9 +16,11 @@ Method | HTTP request | Description
 [**findUsersStartsWithSurnames**](UserApi.md#findUsersStartsWithSurnames) | **GET** /users/search/surnamesStartsWith | Busca usuarios que empiecen por unos apellidos dados
 [**findUsersStartsWithUsername**](UserApi.md#findUsersStartsWithUsername) | **GET** /users/search/usernameStartsWith | Busca usuarios que empiecen por un username dado
 [**getDegreeOfUser**](UserApi.md#getDegreeOfUser) | **GET** /users/{id}/degree | Obtener la carrera de un usuario
+[**getSubjectsAsProfessor**](UserApi.md#getSubjectsAsProfessor) | **GET** /users/{id}/subjectsAsProfessor | Obtener las las asignaturas para las que sea profesor el usuario
 [**getSubjectsOfUser**](UserApi.md#getSubjectsOfUser) | **GET** /users/{id}/subjects | Obtener las asignaturas de un usuario
 [**getUniversityOfUser**](UserApi.md#getUniversityOfUser) | **GET** /users/{id}/university | Obtener la universidad de un usuario
 [**getUser**](UserApi.md#getUser) | **GET** /users/{id} | Obtener un usuario
+[**makeProfessor**](UserApi.md#makeProfessor) | **PATCH** /users/makeProfessor | Convierte un usuario a profesor
 [**updateUser**](UserApi.md#updateUser) | **POST** /users/update | Actualizacion de un usuario en el sistema
 
 
@@ -126,6 +131,145 @@ No authorization required
 
 - **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
+
+
+## deleteUser
+
+> deleteUser(id)
+
+Eliminacion de un usuario (junto a todo su contenido)
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let id = 789; // Number | 
+apiInstance.deleteUser(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
+
+
+## disableUser
+
+> disableUser()
+
+Deshabilita (en vez de borrarlo de la base de datos) al usuario actual
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+apiInstance.disableUser((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## eraseProfessor
+
+> eraseProfessor(userId)
+
+Elimina un profesor
+
+Convierte a un profesor a usuario
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let userId = 56; // Number | Id del usuario
+apiInstance.eraseProfessor(userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id del usuario | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
 
 
 ## findUsersContainingName
@@ -513,6 +657,63 @@ Name | Type | Description  | Notes
 - **Accept**: application/hal+json
 
 
+## getSubjectsAsProfessor
+
+> SubjectGetEmbedded2 getSubjectsAsProfessor(id, opts)
+
+Obtener las las asignaturas para las que sea profesor el usuario
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let id = 789; // Number | Id del usuario
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+};
+apiInstance.getSubjectsAsProfessor(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id del usuario | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+
+### Return type
+
+[**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
+
+
 ## getSubjectsOfUser
 
 > SubjectGetEmbedded2 getSubjectsOfUser(id, opts)
@@ -678,6 +879,55 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/hal+json
+
+
+## makeProfessor
+
+> makeProfessor(userId)
+
+Convierte un usuario a profesor
+
+Convierte un usuario a profesor
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let userId = 56; // Number | Id del usuario
+apiInstance.makeProfessor(userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| Id del usuario | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
 
 
 ## updateUser

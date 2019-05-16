@@ -5,6 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDegree**](DegreeApi.md#addDegree) | **POST** /degrees | Crear nueva carrera
+[**deleteDegree**](DegreeApi.md#deleteDegree) | **DELETE** /degrees/{id} | Elimina la carrera
 [**findDegreesByName**](DegreeApi.md#findDegreesByName) | **GET** /degrees/search/name | Busca una carrera con un nombre dado
 [**findDegreesContainingName**](DegreeApi.md#findDegreesContainingName) | **GET** /degrees/search/nameContaining | Busca carreras que contengan una string en el nombre
 [**findDegreesStartsWith**](DegreeApi.md#findDegreesStartsWith) | **GET** /degrees/search/nameStartsWith | Busca carreras que empiecen por el nombre dado
@@ -60,6 +61,53 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/hal+json
+
+
+## deleteDegree
+
+> deleteDegree(id)
+
+Elimina la carrera
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.DegreeApi();
+let id = 789; // Number | Id de la carrera
+apiInstance.deleteDegree(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la carrera | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## findDegreesByName

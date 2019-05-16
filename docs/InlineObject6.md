@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**secsFromBeg** | **Number** | Segundos que se han visualizados del video | 
-**videoId** | **Number** | Id del video que se esta visualizando | 
+**subjectId** | **Number** | Id de la asignatura que se va a seguir | 
 
 

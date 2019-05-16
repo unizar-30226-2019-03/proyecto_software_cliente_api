@@ -4,18 +4,73 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addProfessor**](SubjectApi.md#addProfessor) | **PUT** /subjects/professors | Añadir un profesor a una asignatura
 [**addSubject**](SubjectApi.md#addSubject) | **POST** /subjects | Crear nueva asignatura
-[**deleteUserFromSubject**](SubjectApi.md#deleteUserFromSubject) | **DELETE** /subjects/{subject_id}/users/{user_id} | Elimina el usuario de la relacion con asignatura
+[**deleteProfessor**](SubjectApi.md#deleteProfessor) | **DELETE** /subjects/professors | Eliminar un profesor a una asignatura
+[**deleteSubject**](SubjectApi.md#deleteSubject) | **DELETE** /subjects/{id} | Elimina la asignatura
 [**existsUserInSubject**](SubjectApi.md#existsUserInSubject) | **GET** /subjects/search/userIn | Devuelve si un usuario esta en una asignatura
 [**findSubjectsByName**](SubjectApi.md#findSubjectsByName) | **GET** /subjects/search/name | Busca una asignatura con un nombre dado
 [**findSubjectsContainingName**](SubjectApi.md#findSubjectsContainingName) | **GET** /subjects/search/nameContaining | Busca asignaturas que contengan una string en el nombre
 [**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
+[**followSubject**](SubjectApi.md#followSubject) | **PUT** /subjects/follow | Seguir asignaturas
+[**getProfessorsFromSubject**](SubjectApi.md#getProfessorsFromSubject) | **GET** /subjects/{id}/professors | Devuelve una lista con los profesores de la asignatura
 [**getSubjectRanking**](SubjectApi.md#getSubjectRanking) | **GET** /subjects/search/ranking | Devuelve el ranking de asignaturas
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
 [**putUniversity**](SubjectApi.md#putUniversity) | **PUT** /subjects/{id}/university | Relacionar una universidad con una asignatura
-[**putUser**](SubjectApi.md#putUser) | **PUT** /subjects/{id}/users | Relacionar un usuario con una asignatura (tanto profesores como alumnos)
+[**unfollowSubject**](SubjectApi.md#unfollowSubject) | **DELETE** /subjects/unfollow | Dejar de seguir asignaturas
 [**updateSubject**](SubjectApi.md#updateSubject) | **PATCH** /subjects/{id} | Actualizar una asignatura
 
+
+
+## addProfessor
+
+> addProfessor(subjectId, professorId)
+
+Añadir un profesor a una asignatura
+
+Añadir un profesor a una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let subjectId = 56; // Number | Id de la asignatura a la que se va a añadir el profesor
+let professorId = 56; // Number | Id del profesor que se va a añadir
+apiInstance.addProfessor(subjectId, professorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subjectId** | **Number**| Id de la asignatura a la que se va a añadir el profesor | 
+ **professorId** | **Number**| Id del profesor que se va a añadir | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
 
 
 ## addSubject
@@ -65,11 +120,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/hal+json
 
 
-## deleteUserFromSubject
+## deleteProfessor
 
-> deleteUserFromSubject(userId, subjectId)
+> deleteProfessor(subjectId, professorId)
 
-Elimina el usuario de la relacion con asignatura
+Eliminar un profesor a una asignatura
+
+Eliminar un profesor a una asignatura
 
 ### Example
 
@@ -81,9 +138,9 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
-let userId = 789; // Number | Id del usuario
-let subjectId = 789; // Number | Id de la asignatura
-apiInstance.deleteUserFromSubject(userId, subjectId, (error, data, response) => {
+let subjectId = 56; // Number | Id de la asignatura de la que se va a borar  el profesor
+let professorId = 56; // Number | Id del profesor que se va a eliminar
+apiInstance.deleteProfessor(subjectId, professorId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -97,8 +154,55 @@ apiInstance.deleteUserFromSubject(userId, subjectId, (error, data, response) => 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| Id del usuario | 
- **subjectId** | **Number**| Id de la asignatura | 
+ **subjectId** | **Number**| Id de la asignatura de la que se va a borar  el profesor | 
+ **professorId** | **Number**| Id del profesor que se va a eliminar | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
+
+
+## deleteSubject
+
+> deleteSubject(id)
+
+Elimina la asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+apiInstance.deleteSubject(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la asignatura | 
 
 ### Return type
 
@@ -116,7 +220,7 @@ null (empty response body)
 
 ## existsUserInSubject
 
-> Boolean existsUserInSubject(userId, subjectId, opts)
+> Boolean existsUserInSubject(subjectId, opts)
 
 Devuelve si un usuario esta en una asignatura
 
@@ -130,14 +234,13 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
-let userId = 789; // Number | Id el usuario a buscar
 let subjectId = 789; // Number | Id de la asignatura en la que buscar
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'" // String | 
 };
-apiInstance.existsUserInSubject(userId, subjectId, opts, (error, data, response) => {
+apiInstance.existsUserInSubject(subjectId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -151,7 +254,6 @@ apiInstance.existsUserInSubject(userId, subjectId, opts, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| Id el usuario a buscar | 
  **subjectId** | **Number**| Id de la asignatura en la que buscar | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
@@ -330,6 +432,110 @@ No authorization required
 - **Accept**: application/json
 
 
+## followSubject
+
+> followSubject(subjectId)
+
+Seguir asignaturas
+
+Seguimiento de asignaturas
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let subjectId = 56; // Number | Id de la asignatura que se va a seguir
+apiInstance.followSubject(subjectId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subjectId** | **Number**| Id de la asignatura que se va a seguir | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
+
+
+## getProfessorsFromSubject
+
+> UserGetEmbedded2 getProfessorsFromSubject(id, opts)
+
+Devuelve una lista con los profesores de la asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'" // String | 
+};
+apiInstance.getProfessorsFromSubject(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la asignatura | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+
+### Return type
+
+[**UserGetEmbedded2**](UserGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getSubjectRanking
 
 > SubjectGetResponse2 getSubjectRanking(opts)
@@ -491,11 +697,13 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## putUser
+## unfollowSubject
 
-> putUser(id, body)
+> unfollowSubject(subjectId)
 
-Relacionar un usuario con una asignatura (tanto profesores como alumnos)
+Dejar de seguir asignaturas
+
+Dejar de seguir asignaturas
 
 ### Example
 
@@ -507,9 +715,8 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.SubjectApi();
-let id = 789; // Number | Id de la asignatura
-let body = 789; // Number | Id del usuario a asociar con la asignatura
-apiInstance.putUser(id, body, (error, data, response) => {
+let subjectId = 56; // Number | Id de la asignatura que se va a dejar de seguir
+apiInstance.unfollowSubject(subjectId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -523,8 +730,7 @@ apiInstance.putUser(id, body, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Id de la asignatura | 
- **body** | **Number**| Id del usuario a asociar con la asignatura | 
+ **subjectId** | **Number**| Id de la asignatura que se va a dejar de seguir | 
 
 ### Return type
 
@@ -536,7 +742,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: text/uri-list
+- **Content-Type**: multipart/form-data
 - **Accept**: Not defined
 
 

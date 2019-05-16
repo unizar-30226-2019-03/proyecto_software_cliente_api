@@ -4,7 +4,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addComment**](CommentApi.md#addComment) | **POST** /comments/add | Subida de un nuevo comentario
+[**addComment**](CommentApi.md#addComment) | **POST** /comments | Subida de un nuevo comentario
 [**getCommentReplies**](CommentApi.md#getCommentReplies) | **GET** /comments/{id}/commentReplies | Devuelve la lista de comentarios que responden al comentario dado
 [**getCommentsByVideo**](CommentApi.md#getCommentsByVideo) | **GET** /comments/search/video | Devuelve una lista de comentarios que pertenezcan al video dado
 [**getRepliedToComment**](CommentApi.md#getRepliedToComment) | **GET** /comments/{id}/commentRepliedTo | Devuelve el comentario al que responde el comentario dado

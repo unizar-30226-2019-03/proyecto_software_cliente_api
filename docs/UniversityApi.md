@@ -5,6 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUniversity**](UniversityApi.md#addUniversity) | **POST** /universities/add | Crear nueva universidad
+[**deleteUniversity**](UniversityApi.md#deleteUniversity) | **DELETE** /universities/delete | Eliminacion de una universidad
 [**findUniversitiesContaining**](UniversityApi.md#findUniversitiesContaining) | **GET** /universities/search/nameContaining | Busca universidades que contengan en el nombre la string dada
 [**findUniversitiesStartsWith**](UniversityApi.md#findUniversitiesStartsWith) | **GET** /universities/search/nameStartsWith | Busca universidades que empiecen por el nombre dado
 [**getDegreesFromUniversity**](UniversityApi.md#getDegreesFromUniversity) | **GET** /universities/{id}/degrees | Devuelve una lista con las carreras de una universidad
@@ -60,6 +61,53 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
+
+
+## deleteUniversity
+
+> deleteUniversity(id)
+
+Eliminacion de una universidad
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UniversityApi();
+let id = 789; // Number | 
+apiInstance.deleteUniversity(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: Not defined
 
 
 ## findUniversitiesContaining
@@ -174,10 +222,6 @@ Devuelve una lista con las carreras de una universidad
 
 ```javascript
 import SwaggerUnicast from 'swagger_unicast';
-let defaultClient = SwaggerUnicast.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.UniversityApi();
 let id = 789; // Number | Id de la universidad
@@ -211,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 

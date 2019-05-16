@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**receiverId** | **Number** | id del usuario al que enviar el mensaje | 
-**text** | **String** | Cuerpo del mensaje a enviar | 
+**subjectId** | **Number** | Id de la asignatura que se va a dejar de seguir | 
 
 

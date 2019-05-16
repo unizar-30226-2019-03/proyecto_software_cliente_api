@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## getUserNotifications
 
-> UserIsNotifiedGetResponse2 getUserNotifications(userId, opts)
+> UserIsNotifiedGetResponse2 getUserNotifications(opts)
 
 Lista de notificaciones de un usuario, tanto revisadas como no revisadas
 
@@ -73,15 +73,13 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.NotificationApi();
-let userId = 789; // Number | Id del usuario sobre el que comprobar las notificaciones
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'page': 56 // Number | Número de la página a devolver
 };
-apiInstance.getUserNotifications(userId, opts, (error, data, response) => {
+apiInstance.getUserNotifications(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -95,12 +93,10 @@ apiInstance.getUserNotifications(userId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| Id del usuario sobre el que comprobar las notificaciones | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
- **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 
 ### Return type
 
@@ -118,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## getUserUncheckedNotifications
 
-> UserIsNotifiedGetResponse2 getUserUncheckedNotifications(userId, opts)
+> UserIsNotifiedGetResponse2 getUserUncheckedNotifications(opts)
 
 Lista de notificaciones que no han sido revisadas
 
@@ -132,15 +128,13 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.NotificationApi();
-let userId = 789; // Number | Id del usuario sobre el que comprobar las notificaciones
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
   'expires': "'0'", // String | 
-  'page': 56, // Number | Número de la página a devolver
-  'sort': ["null"] // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'page': 56 // Number | Número de la página a devolver
 };
-apiInstance.getUserUncheckedNotifications(userId, opts, (error, data, response) => {
+apiInstance.getUserUncheckedNotifications(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -154,12 +148,10 @@ apiInstance.getUserUncheckedNotifications(userId, opts, (error, data, response) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| Id del usuario sobre el que comprobar las notificaciones | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
  **page** | **Number**| Número de la página a devolver | [optional] 
- **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
 
 ### Return type
 

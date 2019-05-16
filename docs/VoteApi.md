@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## addVote
 
-> Vote2 addVote(vote2)
+> Vote2 addVote(videoId, suitability, clarity, quality)
 
 Subida de un nuevo voto
 
@@ -26,8 +26,11 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VoteApi();
-let vote2 = new SwaggerUnicast.Vote2(); // Vote2 | Voto que se va a añadir
-apiInstance.addVote(vote2, (error, data, response) => {
+let videoId = 56; // Number | Id de la asignatura de la que se va a borar  el profesor
+let suitability = 56; // Number | adecuacion
+let clarity = 56; // Number | claridad
+let quality = 56; // Number | calidad
+apiInstance.addVote(videoId, suitability, clarity, quality, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -41,7 +44,10 @@ apiInstance.addVote(vote2, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vote2** | [**Vote2**](Vote2.md)| Voto que se va a añadir | 
+ **videoId** | **Number**| Id de la asignatura de la que se va a borar  el profesor | 
+ **suitability** | **Number**| adecuacion | 
+ **clarity** | **Number**| claridad | 
+ **quality** | **Number**| calidad | 
 
 ### Return type
 
@@ -53,6 +59,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

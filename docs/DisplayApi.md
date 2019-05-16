@@ -4,15 +4,15 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**displaysDeleteVideoIdDelete**](DisplayApi.md#displaysDeleteVideoIdDelete) | **DELETE** /displays/delete/{video_id} | Elimina la visualizacion dada
+[**displaysVideoIdDelete**](DisplayApi.md#displaysVideoIdDelete) | **DELETE** /displays/{video_id} | Elimina la visualizacion dada
 [**getDisplaysByUser**](DisplayApi.md#getDisplaysByUser) | **GET** /displays/search/user | Devuelve una lista de visualizaciones que pertenezcan al usuario dado
-[**updateDisplay**](DisplayApi.md#updateDisplay) | **POST** /displays/update | Actualiza una visualizacion
+[**updateDisplay**](DisplayApi.md#updateDisplay) | **POST** /displays | Actualiza una visualizacion
 
 
 
-## displaysDeleteVideoIdDelete
+## displaysVideoIdDelete
 
-> displaysDeleteVideoIdDelete(videoId)
+> displaysVideoIdDelete(videoId)
 
 Elimina la visualizacion dada
 
@@ -27,7 +27,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.DisplayApi();
 let videoId = 789; // Number | Id del video de la visualizacion a borrar
-apiInstance.displaysDeleteVideoIdDelete(videoId, (error, data, response) => {
+apiInstance.displaysVideoIdDelete(videoId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -59,7 +59,7 @@ null (empty response body)
 
 ## getDisplaysByUser
 
-> DisplayGetResponse2 getDisplaysByUser(id, opts)
+> DisplayGetResponse2 getDisplaysByUser(opts)
 
 Devuelve una lista de visualizaciones que pertenezcan al usuario dado
 
@@ -73,7 +73,6 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.DisplayApi();
-let id = 789; // Number | Id del usuario
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
@@ -82,7 +81,7 @@ let opts = {
   'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
   'projection': "'displayWithVideo'" // String | Incluir si se quiere obtener tambien los videos en la respuesta
 };
-apiInstance.getDisplaysByUser(id, opts, (error, data, response) => {
+apiInstance.getDisplaysByUser(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -96,7 +95,6 @@ apiInstance.getDisplaysByUser(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Id del usuario | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]

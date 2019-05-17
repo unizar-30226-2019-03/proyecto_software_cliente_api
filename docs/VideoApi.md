@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getVideoSubject**](VideoApi.md#getVideoSubject) | **GET** /videos/{id}/subject | Obtener la asignatura de un video
 [**getVideoUploader**](VideoApi.md#getVideoUploader) | **GET** /videos/{id}/uploader | Obtener el uploader de un video
 [**getVideos**](VideoApi.md#getVideos) | **GET** /videos | Lista de videos
+[**getVideosFromReproductionList**](VideoApi.md#getVideosFromReproductionList) | **GET** /videos/search/reproductionList | Lista de videos de una lista de reproduccion
 [**getVideosFromSubject**](VideoApi.md#getVideosFromSubject) | **GET** /videos/search/subjectVideos | Lista de videos de una asignatura
 [**getVideosFromUploader**](VideoApi.md#getVideosFromUploader) | **GET** /videos/search/uploaderVideos | Lista de videos que ha subido un usuario
 [**getVideosOfUserSubjects**](VideoApi.md#getVideosOfUserSubjects) | **GET** /videos/search/userSubjects | Lista de videos de las asignaturas de un usuario
@@ -445,6 +446,67 @@ apiInstance.getVideos(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
+ **sort** | [**[String]**](String.md)| Parámetros en la forma &#x60;($propertyname,)+[asc|desc]?&#x60; | [optional] 
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
+
+### Return type
+
+[**VideoGetResponse2**](VideoGetResponse2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getVideosFromReproductionList
+
+> VideoGetResponse2 getVideosFromReproductionList(reproListId, opts)
+
+Lista de videos de una lista de reproduccion
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let reproListId = 789; // Number | Id de la lista
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'page': 56, // Number | Número de la página a devolver
+  'sort': ["null"], // [String] | Parámetros en la forma `($propertyname,)+[asc|desc]?`
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
+};
+apiInstance.getVideosFromReproductionList(reproListId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reproListId** | **Number**| Id de la lista | 
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]

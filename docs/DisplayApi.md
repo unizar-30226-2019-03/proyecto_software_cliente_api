@@ -4,15 +4,15 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**displaysVideoIdDelete**](DisplayApi.md#displaysVideoIdDelete) | **DELETE** /displays/{video_id} | Elimina la visualizacion dada
+[**deleteDisplay**](DisplayApi.md#deleteDisplay) | **DELETE** /displays/{video_id} | Elimina la visualizacion dada
 [**getDisplaysByUser**](DisplayApi.md#getDisplaysByUser) | **GET** /displays/search/user | Devuelve una lista de visualizaciones que pertenezcan al usuario dado
 [**updateDisplay**](DisplayApi.md#updateDisplay) | **POST** /displays | Actualiza una visualizacion
 
 
 
-## displaysVideoIdDelete
+## deleteDisplay
 
-> displaysVideoIdDelete(videoId)
+> deleteDisplay(videoId)
 
 Elimina la visualizacion dada
 
@@ -27,7 +27,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.DisplayApi();
 let videoId = 789; // Number | Id del video de la visualizacion a borrar
-apiInstance.displaysVideoIdDelete(videoId, (error, data, response) => {
+apiInstance.deleteDisplay(videoId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

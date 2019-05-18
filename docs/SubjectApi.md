@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**findSubjectsStartsWithName**](SubjectApi.md#findSubjectsStartsWithName) | **GET** /subjects/search/nameStartsWith | Busca asignaturas que empiecen por un nombre dado
 [**followSubject**](SubjectApi.md#followSubject) | **PUT** /subjects/follow | Seguir asignaturas
 [**getProfessorsFromSubject**](SubjectApi.md#getProfessorsFromSubject) | **GET** /subjects/{id}/professors | Devuelve una lista con los profesores de la asignatura
+[**getSubjectById**](SubjectApi.md#getSubjectById) | **GET** /subjects/{id} | Obtener una asignatura
 [**getSubjectRanking**](SubjectApi.md#getSubjectRanking) | **GET** /subjects/search/ranking | Devuelve el ranking de asignaturas
 [**getSubjects**](SubjectApi.md#getSubjects) | **GET** /subjects | Lista de asignaturas
 [**putUniversity**](SubjectApi.md#putUniversity) | **PUT** /subjects/{id}/university | Relacionar una universidad con una asignatura
@@ -275,7 +276,7 @@ Name | Type | Description  | Notes
 
 ## findSubjectsByName
 
-> Subject2 findSubjectsByName(opts)
+> SubjectGetEmbedded2 findSubjectsByName(opts)
 
 Busca una asignatura con un nombre dado
 
@@ -314,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Subject2**](Subject2.md)
+[**SubjectGetEmbedded2**](SubjectGetEmbedded2.md)
 
 ### Authorization
 
@@ -534,6 +535,63 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## getSubjectById
+
+> Subject2 getSubjectById(id, opts)
+
+Obtener una asignatura
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.SubjectApi();
+let id = 789; // Number | Id de la asignatura
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'projection': "'subjectWithUniversity'" // String | Incluir si se quiere obtener tambien la universidad en la respuesta
+};
+apiInstance.getSubjectById(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Id de la asignatura | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad en la respuesta | [optional] [default to &#39;subjectWithUniversity&#39;]
+
+### Return type
+
+[**Subject2**](Subject2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
 
 
 ## getSubjectRanking

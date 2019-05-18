@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**addVideotoReproductionList**](ReproductionListApi.md#addVideotoReproductionList) | **POST** /reproductionLists/addVideo | Adicion de un video de la lista (si se es propietario de la lista)
 [**deleteReproductionList**](ReproductionListApi.md#deleteReproductionList) | **DELETE** /reproductionLists/{id} | Elimina una lista de reproduccion
 [**deleteVideoFromReproductionList**](ReproductionListApi.md#deleteVideoFromReproductionList) | **DELETE** /reproductionLists/deleteVideo | Eliminacion de un video de la lista (si se es propietario de la lista)
+[**getReproductionListVideoIn**](ReproductionListApi.md#getReproductionListVideoIn) | **GET** /reproductionLists/search/videoAndUser | Obtiene la lista de listas de reproduccion en las que esta un video
 [**getUserReproductionLists**](ReproductionListApi.md#getUserReproductionLists) | **GET** /reproductionLists/search/user | Devuelve las listas de un usuario
 
 
@@ -204,6 +205,63 @@ null (empty response body)
 
 - **Content-Type**: multipart/form-data
 - **Accept**: Not defined
+
+
+## getReproductionListVideoIn
+
+> ReproductionListGetResponse2 getReproductionListVideoIn(videoId, opts)
+
+Obtiene la lista de listas de reproduccion en las que esta un video
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.ReproductionListApi();
+let videoId = 789; // Number | Id del video que se quiere mirar
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'page': 56 // Number | Número de la página a devolver
+};
+apiInstance.getReproductionListVideoIn(videoId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **videoId** | **Number**| Id del video que se quiere mirar | 
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
+
+### Return type
+
+[**ReproductionListGetResponse2**](ReproductionListGetResponse2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/hal+json
 
 
 ## getUserReproductionLists

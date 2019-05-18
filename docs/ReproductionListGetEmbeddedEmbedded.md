@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**degrees** | [**[ReproductionList]**](ReproductionList.md) |  | [optional] 
+**reproductionLists** | [**[ReproductionList]**](ReproductionList.md) |  | [optional] 
 
 

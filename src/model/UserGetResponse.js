@@ -12,26 +12,26 @@
  */
 
 import ApiClient from '../ApiClient';
-import DegreeGetEmbedded from './DegreeGetEmbedded';
-import DegreeGetEmbeddedEmbedded from './DegreeGetEmbeddedEmbedded';
 import GetResponse from './GetResponse';
 import PaginationPage from './PaginationPage';
+import UserGetEmbedded from './UserGetEmbedded';
+import UserGetEmbeddedEmbedded from './UserGetEmbeddedEmbedded';
 
 /**
- * The DegreeGetResponse model module.
- * @module model/DegreeGetResponse
+ * The UserGetResponse model module.
+ * @module model/UserGetResponse
  * @version 1.3.3
  */
-class DegreeGetResponse {
+class UserGetResponse {
     /**
-     * Constructs a new <code>DegreeGetResponse</code>.
-     * @alias module:model/DegreeGetResponse
+     * Constructs a new <code>UserGetResponse</code>.
+     * @alias module:model/UserGetResponse
      * @implements module:model/GetResponse
-     * @implements module:model/DegreeGetEmbedded
+     * @implements module:model/UserGetEmbedded
      */
     constructor() { 
-        GetResponse.initialize(this);DegreeGetEmbedded.initialize(this);
-        DegreeGetResponse.initialize(this);
+        GetResponse.initialize(this);UserGetEmbedded.initialize(this);
+        UserGetResponse.initialize(this);
     }
 
     /**
@@ -43,23 +43,23 @@ class DegreeGetResponse {
     }
 
     /**
-     * Constructs a <code>DegreeGetResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserGetResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/DegreeGetResponse} obj Optional instance to populate.
-     * @return {module:model/DegreeGetResponse} The populated <code>DegreeGetResponse</code> instance.
+     * @param {module:model/UserGetResponse} obj Optional instance to populate.
+     * @return {module:model/UserGetResponse} The populated <code>UserGetResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new DegreeGetResponse();
+            obj = obj || new UserGetResponse();
             GetResponse.constructFromObject(data, obj);
-            DegreeGetEmbedded.constructFromObject(data, obj);
+            UserGetEmbedded.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('page')) {
                 obj['page'] = PaginationPage.constructFromObject(data['page']);
             }
             if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = DegreeGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
+                obj['_embedded'] = UserGetEmbeddedEmbedded.constructFromObject(data['_embedded']);
             }
         }
         return obj;
@@ -71,12 +71,12 @@ class DegreeGetResponse {
 /**
  * @member {module:model/PaginationPage} page
  */
-DegreeGetResponse.prototype['page'] = undefined;
+UserGetResponse.prototype['page'] = undefined;
 
 /**
- * @member {module:model/DegreeGetEmbeddedEmbedded} _embedded
+ * @member {module:model/UserGetEmbeddedEmbedded} _embedded
  */
-DegreeGetResponse.prototype['_embedded'] = undefined;
+UserGetResponse.prototype['_embedded'] = undefined;
 
 
 // Implement GetResponse interface:
@@ -84,14 +84,14 @@ DegreeGetResponse.prototype['_embedded'] = undefined;
  * @member {module:model/PaginationPage} page
  */
 GetResponse.prototype['page'] = undefined;
-// Implement DegreeGetEmbedded interface:
+// Implement UserGetEmbedded interface:
 /**
- * @member {module:model/DegreeGetEmbeddedEmbedded} _embedded
+ * @member {module:model/UserGetEmbeddedEmbedded} _embedded
  */
-DegreeGetEmbedded.prototype['_embedded'] = undefined;
+UserGetEmbedded.prototype['_embedded'] = undefined;
 
 
 
 
-export default DegreeGetResponse;
+export default UserGetResponse;
 

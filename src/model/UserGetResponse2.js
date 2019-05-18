@@ -12,26 +12,26 @@
  */
 
 import ApiClient from '../ApiClient';
-import DisplayGetEmbedded2 from './DisplayGetEmbedded2';
-import DisplayGetEmbedded2Embedded from './DisplayGetEmbedded2Embedded';
 import GetResponse2 from './GetResponse2';
 import PaginationPage2 from './PaginationPage2';
+import UserGetEmbedded2 from './UserGetEmbedded2';
+import UserGetEmbedded2Embedded from './UserGetEmbedded2Embedded';
 
 /**
- * The DisplayGetResponse2 model module.
- * @module model/DisplayGetResponse2
+ * The UserGetResponse2 model module.
+ * @module model/UserGetResponse2
  * @version 1.3.3
  */
-class DisplayGetResponse2 {
+class UserGetResponse2 {
     /**
-     * Constructs a new <code>DisplayGetResponse2</code>.
-     * @alias module:model/DisplayGetResponse2
+     * Constructs a new <code>UserGetResponse2</code>.
+     * @alias module:model/UserGetResponse2
      * @implements module:model/GetResponse2
-     * @implements module:model/DisplayGetEmbedded2
+     * @implements module:model/UserGetEmbedded2
      */
     constructor() { 
-        GetResponse2.initialize(this);DisplayGetEmbedded2.initialize(this);
-        DisplayGetResponse2.initialize(this);
+        GetResponse2.initialize(this);UserGetEmbedded2.initialize(this);
+        UserGetResponse2.initialize(this);
     }
 
     /**
@@ -43,23 +43,23 @@ class DisplayGetResponse2 {
     }
 
     /**
-     * Constructs a <code>DisplayGetResponse2</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserGetResponse2</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/DisplayGetResponse2} obj Optional instance to populate.
-     * @return {module:model/DisplayGetResponse2} The populated <code>DisplayGetResponse2</code> instance.
+     * @param {module:model/UserGetResponse2} obj Optional instance to populate.
+     * @return {module:model/UserGetResponse2} The populated <code>UserGetResponse2</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new DisplayGetResponse2();
+            obj = obj || new UserGetResponse2();
             GetResponse2.constructFromObject(data, obj);
-            DisplayGetEmbedded2.constructFromObject(data, obj);
+            UserGetEmbedded2.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('page')) {
                 obj['page'] = PaginationPage2.constructFromObject(data['page']);
             }
             if (data.hasOwnProperty('_embedded')) {
-                obj['_embedded'] = DisplayGetEmbedded2Embedded.constructFromObject(data['_embedded']);
+                obj['_embedded'] = UserGetEmbedded2Embedded.constructFromObject(data['_embedded']);
             }
         }
         return obj;
@@ -71,12 +71,12 @@ class DisplayGetResponse2 {
 /**
  * @member {module:model/PaginationPage2} page
  */
-DisplayGetResponse2.prototype['page'] = undefined;
+UserGetResponse2.prototype['page'] = undefined;
 
 /**
- * @member {module:model/DisplayGetEmbedded2Embedded} _embedded
+ * @member {module:model/UserGetEmbedded2Embedded} _embedded
  */
-DisplayGetResponse2.prototype['_embedded'] = undefined;
+UserGetResponse2.prototype['_embedded'] = undefined;
 
 
 // Implement GetResponse2 interface:
@@ -84,14 +84,14 @@ DisplayGetResponse2.prototype['_embedded'] = undefined;
  * @member {module:model/PaginationPage2} page
  */
 GetResponse2.prototype['page'] = undefined;
-// Implement DisplayGetEmbedded2 interface:
+// Implement UserGetEmbedded2 interface:
 /**
- * @member {module:model/DisplayGetEmbedded2Embedded} _embedded
+ * @member {module:model/UserGetEmbedded2Embedded} _embedded
  */
-DisplayGetEmbedded2.prototype['_embedded'] = undefined;
+UserGetEmbedded2.prototype['_embedded'] = undefined;
 
 
 
 
-export default DisplayGetResponse2;
+export default UserGetResponse2;
 

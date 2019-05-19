@@ -6,9 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addVideo**](VideoApi.md#addVideo) | **POST** /videos/upload | Subida de un nuevo video
 [**deleteVideo**](VideoApi.md#deleteVideo) | **DELETE** /videos/delete | Eliminacion de un video (si se es el autor del mismo)
+[**findRecommendedVideos**](VideoApi.md#findRecommendedVideos) | **GET** /videos/search/recommendations | Devuelve una lista de hasta 10 videos recomendados
 [**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
-[**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/recommendations | Devuelve una lista de hasta 10 videos recomendados
-[**findVideosStartsWithTitle_0**](VideoApi.md#findVideosStartsWithTitle_0) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
+[**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
 [**getVideo**](VideoApi.md#getVideo) | **GET** /videos/{id} | Obtener el video con un id dado
 [**getVideoSubject**](VideoApi.md#getVideoSubject) | **GET** /videos/{id}/subject | Obtener la asignatura de un video
 [**getVideoUploader**](VideoApi.md#getVideoUploader) | **GET** /videos/{id}/uploader | Obtener el uploader de un video
@@ -124,6 +124,61 @@ null (empty response body)
 - **Accept**: Not defined
 
 
+## findRecommendedVideos
+
+> VideoGetEmbedded2 findRecommendedVideos(opts)
+
+Devuelve una lista de hasta 10 videos recomendados
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
+};
+apiInstance.findRecommendedVideos(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
+
+### Return type
+
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## findVideosContainingTitle
 
 > VideoGetEmbedded2 findVideosContainingTitle(opts)
@@ -185,61 +240,6 @@ Name | Type | Description  | Notes
 
 > VideoGetEmbedded2 findVideosStartsWithTitle(opts)
 
-Devuelve una lista de hasta 10 videos recomendados
-
-### Example
-
-```javascript
-import SwaggerUnicast from 'swagger_unicast';
-let defaultClient = SwaggerUnicast.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
-
-let apiInstance = new SwaggerUnicast.VideoApi();
-let opts = {
-  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
-  'pragma': "'no-cache'", // String | 
-  'expires': "'0'", // String | 
-  'projection': "'videoWithSubject'" // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
-};
-apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
- **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
- **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
-
-### Return type
-
-[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## findVideosStartsWithTitle_0
-
-> VideoGetEmbedded2 findVideosStartsWithTitle_0(opts)
-
 Busca videos que empiecen por un nombre dado
 
 ### Example
@@ -259,7 +259,7 @@ let opts = {
   'projection': "'videoWithSubject'", // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
   'title': "title_example" // String | Comienzo del nombre de los videos a buscar
 };
-apiInstance.findVideosStartsWithTitle_0(opts, (error, data, response) => {
+apiInstance.findVideosStartsWithTitle(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

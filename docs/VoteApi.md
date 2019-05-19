@@ -26,7 +26,7 @@ let bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SwaggerUnicast.VoteApi();
-let videoId = 56; // Number | Id de la asignatura de la que se va a borar  el profesor
+let videoId = 56; // Number | Id del video sobre el que votar
 let suitability = 56; // Number | adecuacion
 let clarity = 56; // Number | claridad
 let quality = 56; // Number | calidad
@@ -44,7 +44,7 @@ apiInstance.addVote(videoId, suitability, clarity, quality, (error, data, respon
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **Number**| Id de la asignatura de la que se va a borar  el profesor | 
+ **videoId** | **Number**| Id del video sobre el que votar | 
  **suitability** | **Number**| adecuacion | 
  **clarity** | **Number**| claridad | 
  **quality** | **Number**| calidad | 

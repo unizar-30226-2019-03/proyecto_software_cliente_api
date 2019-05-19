@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## addReproductionList
 
-> addReproductionList(name)
+> ReproductionList2 addReproductionList(name)
 
 Añadir una lista de reproduccion
 
@@ -36,7 +36,7 @@ apiInstance.addReproductionList(name, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ReproductionList2**](ReproductionList2.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## addVideotoReproductionList
@@ -227,8 +227,7 @@ let videoId = 789; // Number | Id del video que se quiere mirar
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'", // String | 
-  'page': 56 // Number | Número de la página a devolver
+  'expires': "'0'" // String | 
 };
 apiInstance.getReproductionListVideoIn(videoId, opts, (error, data, response) => {
   if (error) {
@@ -248,7 +247,6 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **page** | **Number**| Número de la página a devolver | [optional] 
 
 ### Return type
 
@@ -283,8 +281,7 @@ let apiInstance = new SwaggerUnicast.ReproductionListApi();
 let opts = {
   'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
   'pragma': "'no-cache'", // String | 
-  'expires': "'0'", // String | 
-  'page': 56 // Number | Número de la página a devolver
+  'expires': "'0'" // String | 
 };
 apiInstance.getUserReproductionLists(opts, (error, data, response) => {
   if (error) {
@@ -303,7 +300,6 @@ Name | Type | Description  | Notes
  **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
  **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
  **expires** | **String**|  | [optional] [default to &#39;0&#39;]
- **page** | **Number**| Número de la página a devolver | [optional] 
 
 ### Return type
 

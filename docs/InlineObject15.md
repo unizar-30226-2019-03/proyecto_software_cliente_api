@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**videoId** | **Number** | Id de la asignatura de la que se va a borar  el profesor | 
+**videoId** | **Number** | Id del video sobre el que votar | 
 **suitability** | **Number** | adecuacion | 
 **clarity** | **Number** | claridad | 
 **quality** | **Number** | calidad | 

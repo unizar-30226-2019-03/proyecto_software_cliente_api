@@ -170,7 +170,8 @@ Class | Method | HTTP request | Description
 *SwaggerUnicast.VideoApi* | [**addVideo**](docs/VideoApi.md#addVideo) | **POST** /videos/upload | Subida de un nuevo video
 *SwaggerUnicast.VideoApi* | [**deleteVideo**](docs/VideoApi.md#deleteVideo) | **DELETE** /videos/delete | Eliminacion de un video (si se es el autor del mismo)
 *SwaggerUnicast.VideoApi* | [**findVideosContainingTitle**](docs/VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
-*SwaggerUnicast.VideoApi* | [**findVideosStartsWithTitle**](docs/VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
+*SwaggerUnicast.VideoApi* | [**findVideosStartsWithTitle**](docs/VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/recommendations | Devuelve una lista de hasta 10 videos recomendados
+*SwaggerUnicast.VideoApi* | [**findVideosStartsWithTitle_0**](docs/VideoApi.md#findVideosStartsWithTitle_0) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
 *SwaggerUnicast.VideoApi* | [**getVideo**](docs/VideoApi.md#getVideo) | **GET** /videos/{id} | Obtener el video con un id dado
 *SwaggerUnicast.VideoApi* | [**getVideoSubject**](docs/VideoApi.md#getVideoSubject) | **GET** /videos/{id}/subject | Obtener la asignatura de un video
 *SwaggerUnicast.VideoApi* | [**getVideoUploader**](docs/VideoApi.md#getVideoUploader) | **GET** /videos/{id}/uploader | Obtener el uploader de un video

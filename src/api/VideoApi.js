@@ -203,6 +203,52 @@ export default class VideoApi {
      */
 
     /**
+     * Devuelve una lista de hasta 10 videos recomendados
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cacheControl  (default to 'no-cache, no-store, must-revalidate')
+     * @param {String} opts.pragma  (default to 'no-cache')
+     * @param {String} opts.expires  (default to '0')
+     * @param {module:model/String} opts.projection Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta (default to 'videoWithSubject')
+     * @param {module:api/VideoApi~findVideosStartsWithTitleCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/VideoGetEmbedded2}
+     */
+    findVideosStartsWithTitle(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'projection': opts['projection']
+      };
+      let headerParams = {
+        'Cache-Control': opts['cacheControl'],
+        'Pragma': opts['pragma'],
+        'Expires': opts['expires']
+      };
+      let formParams = {
+      };
+
+      let authNames = ['bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = VideoGetEmbedded2;
+      return this.apiClient.callApi(
+        '/videos/search/recommendations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the findVideosStartsWithTitle_0 operation.
+     * @callback module:api/VideoApi~findVideosStartsWithTitle_0Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/VideoGetEmbedded2} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
      * Busca videos que empiecen por un nombre dado
      * @param {Object} opts Optional parameters
      * @param {String} opts.cacheControl  (default to 'no-cache, no-store, must-revalidate')
@@ -210,10 +256,10 @@ export default class VideoApi {
      * @param {String} opts.expires  (default to '0')
      * @param {module:model/String} opts.projection Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta (default to 'videoWithSubject')
      * @param {String} opts.title Comienzo del nombre de los videos a buscar
-     * @param {module:api/VideoApi~findVideosStartsWithTitleCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/VideoApi~findVideosStartsWithTitle_0Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/VideoGetEmbedded2}
      */
-    findVideosStartsWithTitle(opts, callback) {
+    findVideosStartsWithTitle_0(opts, callback) {
       opts = opts || {};
       let postBody = null;
 

@@ -125,7 +125,7 @@ null (empty response body)
 
 ## findVideosContainingTitle
 
-> VideoGetResponse2 findVideosContainingTitle(opts)
+> VideoGetEmbedded2 findVideosContainingTitle(opts)
 
 Busca videos que contengan una string en el titulo
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VideoGetResponse2**](VideoGetResponse2.md)
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ## findVideosStartsWithTitle
 
-> Video2 findVideosStartsWithTitle(opts)
+> VideoGetEmbedded2 findVideosStartsWithTitle(opts)
 
 Busca videos que empiecen por un nombre dado
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Video2**](Video2.md)
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
 
 ### Authorization
 

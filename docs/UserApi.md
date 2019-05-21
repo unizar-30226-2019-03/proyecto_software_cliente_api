@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /users/delete | Eliminacion de un usuario (junto a todo su contenido)
 [**disableUser**](UserApi.md#disableUser) | **PATCH** /users/setDisabled | Deshabilita (en vez de borrarlo de la base de datos) al usuario actual
 [**eraseProfessor**](UserApi.md#eraseProfessor) | **PATCH** /users/eraseProfessor | Elimina un profesor
+[**findUserByUsername**](UserApi.md#findUserByUsername) | **GET** /users/search/byUsername | Busca a un usuario con nombre de usuario exacto (teniendo en cuenta mayusculas y minusculas)
 [**findUserProfessors**](UserApi.md#findUserProfessors) | **GET** /users/search/professors | Busca los profesores de un usuario
 [**findUsersContainingName**](UserApi.md#findUsersContainingName) | **GET** /users/search/nameContaining | Busca usuarios que contengan una string en el nombre
 [**findUsersContainingSurname**](UserApi.md#findUsersContainingSurname) | **GET** /users/search/surnamesContaining | Busca usuarios que contengan una string en los apellidos
@@ -271,6 +272,61 @@ null (empty response body)
 
 - **Content-Type**: multipart/form-data
 - **Accept**: Not defined
+
+
+## findUserByUsername
+
+> User2 findUserByUsername(opts)
+
+Busca a un usuario con nombre de usuario exacto (teniendo en cuenta mayusculas y minusculas)
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.UserApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'username': "username_example" // String | String a buscar en el nombre de usuario
+};
+apiInstance.findUserByUsername(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **username** | **String**| String a buscar en el nombre de usuario | [optional] 
+
+### Return type
+
+[**User2**](User2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## findUserProfessors

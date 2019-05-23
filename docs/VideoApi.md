@@ -127,7 +127,7 @@ null (empty response body)
 
 ## findMostPopularLastWeekVideos
 
-> VideoGetEmbedded2 findMostPopularLastWeekVideos(opts)
+> VideoGetResponse2 findMostPopularLastWeekVideos(opts)
 
 Devuelve una lista de videos mas populares
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
+[**VideoGetResponse2**](VideoGetResponse2.md)
 
 ### Authorization
 

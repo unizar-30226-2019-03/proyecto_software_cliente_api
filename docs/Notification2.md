@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **text** | **String** |  | [optional] 
 **timestamp** | **Date** |  | [optional] 
 **notificationCategory** | **String** |  | [optional] 
+**creatorId** | **Number** |  | [optional] 
 
 
 

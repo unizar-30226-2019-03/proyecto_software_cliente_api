@@ -108,7 +108,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deleteReproductionList
@@ -155,7 +155,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deleteVideoFromReproductionList
@@ -204,7 +204,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## getReproductionListVideoIn

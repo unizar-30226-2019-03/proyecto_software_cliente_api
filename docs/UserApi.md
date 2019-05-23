@@ -179,7 +179,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## disableUser

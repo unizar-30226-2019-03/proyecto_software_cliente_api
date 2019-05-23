@@ -5,7 +5,7 @@ All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addMessage**](MessageApi.md#addMessage) | **POST** /messages | Crea un nuevo mensaje
-[**getLastMessages**](MessageApi.md#getLastMessages) | **GET** /messages/lastMessages | Lista de mensajes enviados al recipiente dado
+[**getLastMessages**](MessageApi.md#getLastMessages) | **GET** /messages/lastMessages | Ultimos mensajes enviados segun quien realiza la llamada
 [**getMessagesFromSender**](MessageApi.md#getMessagesFromSender) | **GET** /messages/fromSender | Lista de mensajes del remitente dado
 [**getMessagesToReceiver**](MessageApi.md#getMessagesToReceiver) | **GET** /messages/toReceiver | Lista de mensajes enviados al recipiente dado
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 > MessageGetEmbedded2 getLastMessages(opts)
 
-Lista de mensajes enviados al recipiente dado
+Ultimos mensajes enviados segun quien realiza la llamada
 
 ### Example
 

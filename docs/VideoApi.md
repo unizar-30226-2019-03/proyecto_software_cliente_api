@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addVideo**](VideoApi.md#addVideo) | **POST** /videos/upload | Subida de un nuevo video
 [**deleteVideo**](VideoApi.md#deleteVideo) | **DELETE** /videos/delete | Eliminacion de un video (si se es el autor del mismo)
+[**findMostPopularLastWeekVideos**](VideoApi.md#findMostPopularLastWeekVideos) | **GET** /videos/search/mostPopularLastWeek | Devuelve una lista de videos mas populares
 [**findRecommendedVideos**](VideoApi.md#findRecommendedVideos) | **GET** /videos/search/recommendations | Devuelve una lista de hasta 10 videos recomendados
 [**findVideosContainingTitle**](VideoApi.md#findVideosContainingTitle) | **GET** /videos/search/titleContaining | Busca videos que contengan una string en el titulo
 [**findVideosStartsWithTitle**](VideoApi.md#findVideosStartsWithTitle) | **GET** /videos/search/titleStartsWith | Busca videos que empiecen por un nombre dado
@@ -121,7 +122,64 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
+
+
+## findMostPopularLastWeekVideos
+
+> VideoGetEmbedded2 findMostPopularLastWeekVideos(opts)
+
+Devuelve una lista de videos mas populares
+
+### Example
+
+```javascript
+import SwaggerUnicast from 'swagger_unicast';
+let defaultClient = SwaggerUnicast.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new SwaggerUnicast.VideoApi();
+let opts = {
+  'cacheControl': "'no-cache, no-store, must-revalidate'", // String | 
+  'pragma': "'no-cache'", // String | 
+  'expires': "'0'", // String | 
+  'projection': "'videoWithSubject'", // String | Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta
+  'page': 56 // Number | Número de la página a devolver
+};
+apiInstance.findMostPopularLastWeekVideos(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cacheControl** | **String**|  | [optional] [default to &#39;no-cache, no-store, must-revalidate&#39;]
+ **pragma** | **String**|  | [optional] [default to &#39;no-cache&#39;]
+ **expires** | **String**|  | [optional] [default to &#39;0&#39;]
+ **projection** | **String**| Incluir si se quiere obtener tambien la universidad y/o la asignatura en la respuesta | [optional] [default to &#39;videoWithSubject&#39;]
+ **page** | **Number**| Número de la página a devolver | [optional] 
+
+### Return type
+
+[**VideoGetEmbedded2**](VideoGetEmbedded2.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## findRecommendedVideos

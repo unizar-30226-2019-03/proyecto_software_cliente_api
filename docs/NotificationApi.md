@@ -1,6 +1,6 @@
 # SwaggerUnicast.NotificationApi
 
-All URIs are relative to *http://ec2-35-181-26-7.eu-west-3.compute.amazonaws.com:8080/api*
+All URIs are relative to *http://ec2-35-181-76-150.eu-west-3.compute.amazonaws.com:8080/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

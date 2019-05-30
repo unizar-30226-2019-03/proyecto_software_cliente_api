@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**findDegreesStartsWith**](DegreeApi.md#findDegreesStartsWith) | **GET** /degrees/search/nameStartsWith | Busca carreras que empiecen por el nombre dado
 [**getDegrees**](DegreeApi.md#getDegrees) | **GET** /degrees | Lista de carreras
 [**getUniversitiesFromDegree**](DegreeApi.md#getUniversitiesFromDegree) | **GET** /degrees/{id}/universities | Devuelve una lista con las universidades de una carrera
-[**putDegreeUniversity**](DegreeApi.md#putDegreeUniversity) | **PUT** /degrees/{id}/universities | Relacionar una carrera con una universidad
+[**putDegreeUniversity**](DegreeApi.md#putDegreeUniversity) | **PATCH** /degrees/{id}/universities | Relacionar una carrera con una universidad
 [**updateDegree**](DegreeApi.md#updateDegree) | **PATCH** /degrees/{id} | Actualizar una carrera
 
 
